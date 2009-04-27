@@ -14,6 +14,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA51FE9F0F8DF74600A1091D /* PriorityCell.m */; };
+		CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		8D1107320486CEB800E47090 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA51FE9E0F8DF74600A1091D /* PriorityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityCell.h; sourceTree = "<group>"; };
 		CA51FE9F0F8DF74600A1091D /* PriorityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityCell.m; sourceTree = "<group>"; };
+		CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoOutlineView.h; sourceTree = "<group>"; };
+		CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoOutlineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,8 @@
 				77C8280C06725ACE000B614F /* TODO_AppDelegate.m */,
 				CA51FE9E0F8DF74600A1091D /* PriorityCell.h */,
 				CA51FE9F0F8DF74600A1091D /* PriorityCell.m */,
+				CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */,
+				CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				77C8280E06725ACE000B614F /* TODO_AppDelegate.m in Sources */,
 				770B37ED0679A11B001EADE2 /* TODO_DataModel.xcdatamodel in Sources */,
 				CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */,
+				CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

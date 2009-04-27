@@ -11,6 +11,7 @@
 @interface TODO_AppDelegate : NSObject 
 {
     IBOutlet NSWindow *window;
+	IBOutlet NSWindow *hudwindow;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
