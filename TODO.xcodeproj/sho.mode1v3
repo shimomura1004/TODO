@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -275,8 +277,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
-									<integer>1</integer>
+									<integer>14</integer>
+									<integer>11</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -328,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CAB766AE0FA621410009C064</string>
+										<string>CACA2BE80FA6B380008438A3</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAA0F8E0D9E00A1091D</string>
@@ -336,7 +338,7 @@
 											<string>CA4440FB0FA4BF76004BF946</string>
 											<string>CAFC84E40FA5545E003A6C4A</string>
 											<string>CAB766AB0FA621410009C064</string>
-											<string>CAB766AC0FA621410009C064</string>
+											<string>CAB766AE0FA621410009C064</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -404,9 +406,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>CAB7669A0FA61BAD0009C064</string>
+				<string>CACA2BE90FA6B380008438A3</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>CAB7669B0FA61BAD0009C064</string>
+				<string>CACA2BEA0FA6B380008438A3</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -540,9 +542,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>CA51FE8A0F8DE49000A1091D</string>
 		<string>/Users/sho/Documents/XCode/TODO/TODO.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
