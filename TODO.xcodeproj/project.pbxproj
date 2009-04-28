@@ -15,7 +15,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA51FE9F0F8DF74600A1091D /* PriorityCell.m */; };
 		CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */; };
-		CACA2BF60FA6B666008438A3 /* TodoQLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CACA2BF50FA6B666008438A3 /* TodoQLView.m */; };
+		CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		CA51FE9F0F8DF74600A1091D /* PriorityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityCell.m; sourceTree = "<group>"; };
 		CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoOutlineView.h; sourceTree = "<group>"; };
 		CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoOutlineView.m; sourceTree = "<group>"; };
-		CACA2BF40FA6B666008438A3 /* TodoQLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoQLView.h; sourceTree = "<group>"; };
-		CACA2BF50FA6B666008438A3 /* TodoQLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoQLView.m; sourceTree = "<group>"; };
+		CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoQLPanel.h; sourceTree = "<group>"; };
+		CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoQLPanel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 				CA51FE9F0F8DF74600A1091D /* PriorityCell.m */,
 				CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */,
 				CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */,
-				CACA2BF40FA6B666008438A3 /* TodoQLView.h */,
-				CACA2BF50FA6B666008438A3 /* TodoQLView.m */,
+				CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */,
+				CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 				770B37ED0679A11B001EADE2 /* TODO_DataModel.xcdatamodel in Sources */,
 				CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */,
 				CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */,
-				CACA2BF60FA6B666008438A3 /* TodoQLView.m in Sources */,
+				CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

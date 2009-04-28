@@ -201,6 +201,23 @@
 	
 	return NO;
 }
+-(BOOL)panelWindow:(NSPanel *)panelWindow keyDown:(NSEvent *)theEvent
+{
+	NSString *text = [theEvent characters];
+	
+	if ([text isEqualToString:@" "])
+	{
+		if ([hudwindow isVisible]) {
+			[hudwindow orderOut:self];
+		} else {
+			[hudwindow orderFront:self];
+		}
+		
+		return YES;
+	}
+	
+	return NO;
+}
 
 
 @end

@@ -70,7 +70,7 @@
 			"Xdesign Model Editor Bookmark Key" = {
 				UIContextForDetailArea = {
 					_indexOfSelectedPane = 0;
-					_indexOfSelectedView = 0;
+					_indexOfSelectedView = 1;
 				};
 				UIContextForEntityArea = {
 					_indexOfSelectedView = 0;
@@ -91,7 +91,7 @@
 					chosenTableWidths = (
 						103.000000,
 						22.000000,
-						76.080078,
+						75.080078,
 					);
 				};
 				UIContextForLayoutManager = {
@@ -101,8 +101,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {695, 220}}",
-							"{{700, 0}, {366, 220}}",
+							"{{0, 0}, {695, 218}}",
+							"{{700, 0}, {366, 218}}",
 						);
 					};
 					diagramSplitGeometry = {
@@ -112,7 +112,7 @@
 						isCollapsed = yes;
 						sizes = (
 							"{{0, 0}, {1066, 220}}",
-							"{{0, 225}, {1066, 262}}",
+							"{{0, 225}, {1066, 321}}",
 						);
 					};
 					tableSplitGeometry = {
@@ -121,8 +121,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {226, 220}}",
-							"{{231, 0}, {464, 220}}",
+							"{{0, 0}, {225, 218}}",
+							"{{230, 0}, {463, 218}}",
 						);
 					};
 				};
@@ -211,7 +211,7 @@
 					chosenTableWidthsPT = (
 						128.000000,
 						108.110840,
-						201.570801,
+						200.570801,
 					);
 					chosenTableWidthsRT = (
 						128.000000,
@@ -219,7 +219,7 @@
 					);
 				};
 				"xdesign model browser state key - shown/hidden" = 1;
-				"xdesign model diagram view visible rect key" = "{{-177, 0}, {1051, 247}}";
+				"xdesign model diagram view visible rect key" = "{{-177, 0}, {1051, 306}}";
 			};
 			sepNavWindowFrame = "{{292, 46}, {990, 732}}";
 		};
@@ -233,9 +233,9 @@
 	};
 	77C8280C06725ACE000B614F /* TODO_AppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 2982}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 2996}}";
 			sepNavSelRange = "{6006, 0}";
-			sepNavVisRange = "{5593, 630}";
+			sepNavVisRange = "{5592, 631}";
 		};
 	};
 	8D1107260486CEB800E47090 /* TODO */ = {
@@ -425,7 +425,7 @@
 	};
 	CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 531}}";
 			sepNavSelRange = "{220, 0}";
 			sepNavVisRange = "{0, 473}";
 		};
