@@ -7,6 +7,7 @@
 //
 
 #import "TODO_AppDelegate.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation TODO_AppDelegate
 
@@ -183,6 +184,36 @@
     [super dealloc];
 }
 
+
+- (IBAction) syncTasks:(id)sender {
+	/* network access */
+	id pool = [[NSAutoreleasePool alloc] init];
+	NSURL *url = [NSURL URLWithString:@"http://www.google.co.jp/"];
+	NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+	NSURLResponse *resp;
+	NSError *err;
+	NSData *result = [NSURLConnection sendSynchronousRequest:req
+										   returningResponse:&resp error:&err];
+	
+	NSLog(@"%@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
+	
+	/* calcurate md5 */
+	NSString *testString = @"BANANASabcbazfegbaryxzfoo";
+	const char *test_cstr = [testString UTF8String];
+	unsigned char md5_result[CC_MD5_DIGEST_LENGTH];
+	CC_MD5(test_cstr, strlen(test_cstr), md5_result);
+	char md5cstring[CC_MD5_DIGEST_LENGTH*2];
+	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
+		sprintf(md5cstring+i*2, "%02x", md5_result[i]);
+	}
+	NSLog([NSString stringWithCString:md5cstring length:CC_MD5_DIGEST_LENGTH*2]);
+	
+	/* parse xml */
+	
+	
+	
+	[pool release];
+}
 
 -(BOOL)outlineView:(NSOutlineView *)outlineView keyDown:(NSEvent *)theEvent
 {
