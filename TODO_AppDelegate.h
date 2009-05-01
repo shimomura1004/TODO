@@ -23,6 +23,5 @@
 - (NSManagedObjectContext *)managedObjectContext;
 
 - (IBAction)saveAction:sender;
-- (IBAction)syncTasks:sender;
 
 @end

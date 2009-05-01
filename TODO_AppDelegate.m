@@ -184,35 +184,15 @@
     [super dealloc];
 }
 
-
-- (IBAction) syncTasks:(id)sender {
-	/* network access */
-	id pool = [[NSAutoreleasePool alloc] init];
-	NSURL *url = [NSURL URLWithString:@"http://www.google.co.jp/"];
-	NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
-	NSURLResponse *resp;
-	NSError *err;
-	NSData *result = [NSURLConnection sendSynchronousRequest:req
-										   returningResponse:&resp error:&err];
-	
-	NSLog(@"%@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
-	
-	/* calcurate md5 */
-	NSString *testString = @"BANANASabcbazfegbaryxzfoo";
-	const char *test_cstr = [testString UTF8String];
+- (NSString *) createMD5String:(NSString *)orig {
+	const char *test_cstr = [orig UTF8String];
 	unsigned char md5_result[CC_MD5_DIGEST_LENGTH];
 	CC_MD5(test_cstr, strlen(test_cstr), md5_result);
 	char md5cstring[CC_MD5_DIGEST_LENGTH*2];
 	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
 		sprintf(md5cstring+i*2, "%02x", md5_result[i]);
 	}
-	NSLog([NSString stringWithCString:md5cstring length:CC_MD5_DIGEST_LENGTH*2]);
-	
-	/* parse xml */
-	
-	
-	
-	[pool release];
+	return [NSString stringWithCString:md5cstring length:CC_MD5_DIGEST_LENGTH*2];
 }
 
 -(BOOL)outlineView:(NSOutlineView *)outlineView keyDown:(NSEvent *)theEvent
@@ -248,6 +228,91 @@
 	}
 	
 	return NO;
+}
+
+- (NSString *) createRtmQuery:(NSDictionary *)params
+{
+	NSString *secret = @"b16393df7a139ec4";
+	NSArray *keys = [[params allKeys] sortedArrayUsingSelector:@selector(compare:)];
+	NSMutableString *signature = [NSMutableString stringWithString:secret];
+	
+	// prepare api_sig
+	for (NSString *key in keys)
+	{
+		NSString *val = [params objectForKey:key];
+		[signature appendString:key];
+		[signature appendString:val];
+	}
+	NSString *apiSig = [self createMD5String:signature];
+	
+	// prepare query
+	NSMutableArray *pairs = [NSMutableArray arrayWithCapacity:5];
+	[pairs addObject:(@"api_sig=@a", apiSig)];
+	for (NSString *key in keys)
+	{
+		NSString *val = [params objectForKey:key];
+		[pairs addObject:[NSString stringWithFormat:@"%@=%@", key, val]];
+	}
+	return [pairs componentsJoinedByString:@"&"];
+}
+
+- (NSXMLElement *) performQuery:(NSString *)query
+{
+	BOOL asHTML = NO;
+	NSURL *url = [NSURL URLWithString:query];
+	NSError *error = nil;
+	int options = (asHTML) ? NSXMLDocumentTidyHTML : 0;
+	NSXMLDocument *document = [[[NSXMLDocument alloc]
+								initWithContentsOfURL:url options:options error:&error] autorelease];
+	return [document rootElement];
+}
+
+/* This function is called after initiating application */
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+	NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"myToken"];
+	if (token) {
+		NSLog(@"Token is found in defaults: %@", token);
+	} else {
+		NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
+		
+		// Get frob
+		NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		[params setObject:@"rtm.auth.getFrob" forKey:@"method"];
+		NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+		NSXMLElement *rootElement = [self performQuery:requestURL];
+		NSArray *linkNodes = [rootElement nodesForXPath:@"//frob" error:nil];
+		NSString *frob = [[linkNodes objectAtIndex:0] stringValue];
+		NSLog(@"frob is %@", frob);
+		
+		// authorizer URL
+		params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		[params setObject:@"read" forKey:@"perms"];
+		[params setObject:frob forKey:@"frob"];
+		requestURL = [@"http://www.rememberthemilk.com/services/auth/?" stringByAppendingString:[self createRtmQuery:params]];
+		/* WAIT HERE FOR USER TO AUTHORIZE! */
+		NSRunAlertPanel(@"Authorize me!", requestURL, @"OK", NULL, NULL);
+		
+		// get token
+		params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		[params setObject:@"rtm.auth.getToken" forKey:@"method"];
+		[params setObject:frob forKey:@"frob"];
+		requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+		rootElement = [self performQuery:requestURL];
+		linkNodes = [rootElement nodesForXPath:@"//token" error:nil];
+		NSString *token = [[linkNodes objectAtIndex:0] stringValue];
+		NSLog(@"token is %@", token);
+
+		// Save token
+		if (token)
+		{
+			[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"myToken"];
+			[[NSUserDefaults standardUserDefaults] synchronize];
+		} else {
+			NSLog(@"Error: couldn't get token");
+			NSLog(@"query is %@", requestURL);
+		}
+	}
 }
 
 
