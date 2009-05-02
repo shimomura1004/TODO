@@ -12,6 +12,8 @@
 
 @implementation TODO_AppDelegate
 
+static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
+
 
 /**
     Returns the support folder for the application, used to store the Core Data
@@ -280,28 +282,41 @@
 	 </taskseries>
 	 */
 	
-	NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
 	[params setObject:@"rtm.tasks.getList" forKey:@"method"];
 	[params setObject:token forKey:@"auth_token"];
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
-	NSLog(@"%@", [rootElement XMLString]);
+	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
 	
-	Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[self managedObjectContext]];
-	task.due = @"4/1";
-	task.priority = [NSNumber numberWithInt:3];
-	task.tags = @"work";
-	task.time = @"20 min";
-	task.title = @"sample task";
-	/*
-	[task setValue:@"4/1" forKey:@"due"];
-	[task setValue:3 forKey:@"priority"];
-	[task setValue:@"work" forKey:@"tags"];
-	[task setValue:@"20 min" forKey:@"time"];
-	[task setValue:@"sample task" forKey:@"title"];
-	NSLog("hello");
-	*/
+	// create task
+	for (int i=0; i < [taskseriesArray count]; i++)
+	{
+		NSXMLElement *taskseries = [taskseriesArray objectAtIndex:i];
+		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
+		
+		NSXMLElement *task = [[taskseries nodesForXPath:@"task" error:nil] objectAtIndex:0];
+		NSString *due = [[task attributeForName:@"due"] stringValue];
+		NSNumber *priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
+		NSString *estimate  = [[task attributeForName:@"estimate"] stringValue];
+		
+		NSLog(@"%@", name);
+		NSLog(@"%@", due);
+		NSLog(@"%@", priority);
+		NSLog(@"%@", estimate);
+		
+		Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
+															inManagedObjectContext:[self managedObjectContext]];
+		taskEntity.due = due;
+		taskEntity.priority = priority;
+		taskEntity.tags = nil;
+		taskEntity.time = estimate;
+		taskEntity.title = name;
+		taskEntity.children = nil;
+		taskEntity.notes = nil;
+		taskEntity.parent = nil;
+		taskEntity.tasklist = nil;
+	}
 	
 
 //	NSArray *linkNodes = [rootElement nodesForXPath:@"//frob" error:nil];
@@ -315,10 +330,9 @@
 	if (token) {
 		NSLog(@"Token is found in defaults: %@", token);
 	} else {
-		NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
-		
 		// Get frob
-		NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
+		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"rtm.auth.getFrob" forKey:@"method"];
 		NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
 		NSXMLElement *rootElement = [self performQuery:requestURL];
@@ -327,7 +341,8 @@
 		NSLog(@"frob is %@", frob);
 		
 		// authorizer URL
-		params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		params = [NSMutableDictionary dictionaryWithCapacity:5];
+		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"read" forKey:@"perms"];
 		[params setObject:frob forKey:@"frob"];
 		requestURL = [@"http://www.rememberthemilk.com/services/auth/?" stringByAppendingString:[self createRtmQuery:params]];
@@ -335,7 +350,8 @@
 		NSRunAlertPanel(@"Authorize me!", requestURL, @"OK", NULL, NULL);
 		
 		// get token
-		params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+		params = [NSMutableDictionary dictionaryWithCapacity:5];
+		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"rtm.auth.getToken" forKey:@"method"];
 		[params setObject:frob forKey:@"frob"];
 		requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
