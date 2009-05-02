@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="1072"/>
-			<integer value="969"/>
+			<integer value="982"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1629,7 +1629,7 @@
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy">
-					<string key="NSEntityName">TodoItem</string>
+					<string key="NSEntityName">Task</string>
 					<object class="NSComparisonPredicate" key="NSFetchPredicate">
 						<object class="NSKeyPathExpression" key="NSLeftExpression">
 							<int key="NSExpressionType">3</int>
@@ -1670,7 +1670,7 @@
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy">
-					<string key="NSEntityName">NoteItem</string>
+					<string key="NSEntityName">Note</string>
 				</object>
 				<bool key="_NSIsUsingManagedProxy">YES</bool>
 				<bool key="NSAvoidsEmptySelection">YES</bool>

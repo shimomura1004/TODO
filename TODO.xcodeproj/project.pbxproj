@@ -16,6 +16,7 @@
 		CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA51FE9F0F8DF74600A1091D /* PriorityCell.m */; };
 		CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */; };
 		CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */; };
+		CAD0496A0FAC6A8100B960E5 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD049690FAC6A8100B960E5 /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoOutlineView.m; sourceTree = "<group>"; };
 		CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoQLPanel.h; sourceTree = "<group>"; };
 		CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoQLPanel.m; sourceTree = "<group>"; };
+		CAD049680FAC6A8100B960E5 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		CAD049690FAC6A8100B960E5 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CAD049680FAC6A8100B960E5 /* Task.h */,
+				CAD049690FAC6A8100B960E5 /* Task.m */,
 				770B37EC0679A11B001EADE2 /* TODO_DataModel.xcdatamodel */,
 			);
 			name = Models;
@@ -203,6 +208,7 @@
 				CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */,
 				CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */,
 				CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */,
+				CAD0496A0FAC6A8100B960E5 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

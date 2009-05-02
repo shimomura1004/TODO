@@ -8,6 +8,7 @@
 
 #import "TODO_AppDelegate.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "Task.h"
 
 @implementation TODO_AppDelegate
 
@@ -247,7 +248,7 @@
 	
 	// prepare query
 	NSMutableArray *pairs = [NSMutableArray arrayWithCapacity:5];
-	[pairs addObject:(@"api_sig=@a", apiSig)];
+	[pairs addObject:[@"api_sig=" stringByAppendingString:apiSig]];
 	for (NSString *key in keys)
 	{
 		NSString *val = [params objectForKey:key];
@@ -265,6 +266,46 @@
 	NSXMLDocument *document = [[[NSXMLDocument alloc]
 								initWithContentsOfURL:url options:options error:&error] autorelease];
 	return [document rootElement];
+}
+
+
+- (void) getTasks:(NSString *)token
+{
+	/*
+	 <taskseries id="37599154" created="2009-04-07T08:57:55Z" modified="2009-04-07T14:52:23Z" name="デンソーへの道順を調べる" source="js" url="" location_id="">
+	 <tags><tag>denso</tag></tags>
+	 <participants></participants>
+	 <notes></notes>
+	 <task id="53232824" due="2009-04-06T15:00:00Z" has_due_time="0" added="2009-04-07T08:57:55Z" completed="2009-04-07T14:52:23Z" deleted="" priority="1" postponed="0" estimate=""></task>
+	 </taskseries>
+	 */
+	
+	NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
+	[params setObject:@"rtm.tasks.getList" forKey:@"method"];
+	[params setObject:token forKey:@"auth_token"];
+	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+	NSXMLElement *rootElement = [self performQuery:requestURL];
+	NSLog(@"%@", [rootElement XMLString]);
+	
+	Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[self managedObjectContext]];
+	task.due = @"4/1";
+	task.priority = [NSNumber numberWithInt:3];
+	task.tags = @"work";
+	task.time = @"20 min";
+	task.title = @"sample task";
+	/*
+	[task setValue:@"4/1" forKey:@"due"];
+	[task setValue:3 forKey:@"priority"];
+	[task setValue:@"work" forKey:@"tags"];
+	[task setValue:@"20 min" forKey:@"time"];
+	[task setValue:@"sample task" forKey:@"title"];
+	NSLog("hello");
+	*/
+	
+
+//	NSArray *linkNodes = [rootElement nodesForXPath:@"//frob" error:nil];
+//	NSString *frob = [[linkNodes objectAtIndex:0] stringValue];
 }
 
 /* This function is called after initiating application */
@@ -313,6 +354,9 @@
 			NSLog(@"query is %@", requestURL);
 		}
 	}
+	
+	// get all tasks
+	[self getTasks:token];
 }
 
 
