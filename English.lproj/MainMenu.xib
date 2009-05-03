@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="1182"/>
-			<integer value="970"/>
+			<integer value="982"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -332,7 +332,7 @@
 													<reference key="NSTableView" ref="357777120"/>
 												</object>
 												<object class="NSTableColumn" id="850456632">
-													<double key="NSWidth">4.360000e+02</double>
+													<double key="NSWidth">2.210000e+02</double>
 													<double key="NSMinWidth">1.600000e+01</double>
 													<double key="NSMaxWidth">1.000000e+03</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -1649,6 +1649,9 @@
 					<string>tags</string>
 					<string>length</string>
 					<string>count</string>
+					<string>ident</string>
+					<string>rtmd</string>
+					<string>rtmid</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
@@ -5092,7 +5095,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1212</int>
+			<int key="maxID">1219</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

@@ -288,19 +288,20 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
 		
 		NSXMLElement *task = [[taskseries nodesForXPath:@"task" error:nil] objectAtIndex:0];
-		NSString *ident = [[task attributeForName:@"id"] stringValue];
+		NSNumber *rtmid = [NSNumber numberWithLongLong:[[[task attributeForName:@"id"] stringValue] longLongValue]];
 		
 		// check if the task is already in the db
 		NSFetchRequest *req = [[NSFetchRequest alloc] init];
 		[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:[self managedObjectContext]]];
-		[req setPredicate:[NSPredicate predicateWithFormat:@"(ident = '%@')", ident]];
+		[req setPredicate:[NSPredicate predicateWithFormat:@"rtmid == %@", rtmid]];
 		NSError *err = nil;
-		NSLog(@"%@", [[self managedObjectContext] executeFetchRequest:req error:&err]);
-//		if ([[[self managedObjectContext] executeFetchRequest:req error:nil] count] != 0)
-//		{
+		NSArray *entries = [[self managedObjectContext] executeFetchRequest:req error:&err];
+
+		if ([entries count] == 0)
+		{
 			Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
 															 inManagedObjectContext:[self managedObjectContext]];
-			taskEntity.ident = ident;
+			taskEntity.rtmid = rtmid;
 			taskEntity.due = [[task attributeForName:@"due"] stringValue];
 			taskEntity.priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
 			taskEntity.tags = nil;
@@ -311,7 +312,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 			taskEntity.notes = nil;
 			taskEntity.parent = nil;
 			taskEntity.tasklist = nil;
-//		}
+		}
 	}
 }
 
