@@ -13,10 +13,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA51FE9F0F8DF74600A1091D /* PriorityCell.m */; };
+		CA58F1100FAD1B7E006C5C14 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CA58F10F0FAD1B7E006C5C14 /* Task.m */; };
 		CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */; };
 		CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */; };
-		CAD0496A0FAC6A8100B960E5 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD049690FAC6A8100B960E5 /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,14 +32,12 @@
 		77C8280C06725ACE000B614F /* TODO_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TODO_AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA51FE9E0F8DF74600A1091D /* PriorityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityCell.h; sourceTree = "<group>"; };
-		CA51FE9F0F8DF74600A1091D /* PriorityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityCell.m; sourceTree = "<group>"; };
+		CA58F10E0FAD1B7E006C5C14 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		CA58F10F0FAD1B7E006C5C14 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoOutlineView.h; sourceTree = "<group>"; };
 		CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoOutlineView.m; sourceTree = "<group>"; };
 		CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoQLPanel.h; sourceTree = "<group>"; };
 		CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoQLPanel.m; sourceTree = "<group>"; };
-		CAD049680FAC6A8100B960E5 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		CAD049690FAC6A8100B960E5 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +57,6 @@
 			children = (
 				77C8280B06725ACE000B614F /* TODO_AppDelegate.h */,
 				77C8280C06725ACE000B614F /* TODO_AppDelegate.m */,
-				CA51FE9E0F8DF74600A1091D /* PriorityCell.h */,
-				CA51FE9F0F8DF74600A1091D /* PriorityCell.m */,
 				CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */,
 				CABFF4AB0FA5F2630006CBC8 /* TodoOutlineView.m */,
 				CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */,
@@ -140,8 +135,8 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CAD049680FAC6A8100B960E5 /* Task.h */,
-				CAD049690FAC6A8100B960E5 /* Task.m */,
+				CA58F10E0FAD1B7E006C5C14 /* Task.h */,
+				CA58F10F0FAD1B7E006C5C14 /* Task.m */,
 				770B37EC0679A11B001EADE2 /* TODO_DataModel.xcdatamodel */,
 			);
 			name = Models;
@@ -205,10 +200,9 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				77C8280E06725ACE000B614F /* TODO_AppDelegate.m in Sources */,
 				770B37ED0679A11B001EADE2 /* TODO_DataModel.xcdatamodel in Sources */,
-				CA51FEA00F8DF74600A1091D /* PriorityCell.m in Sources */,
 				CABFF4AC0FA5F2630006CBC8 /* TodoOutlineView.m in Sources */,
 				CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */,
-				CAD0496A0FAC6A8100B960E5 /* Task.m in Sources */,
+				CA58F1100FAD1B7E006C5C14 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

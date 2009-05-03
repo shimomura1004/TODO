@@ -271,17 +271,9 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 }
 
 
-- (void) getTasks:(NSString *)token
+- (void) getAllTasks:(NSString *)token
 {
-	/*
-	 <taskseries id="37599154" created="2009-04-07T08:57:55Z" modified="2009-04-07T14:52:23Z" name="デンソーへの道順を調べる" source="js" url="" location_id="">
-	 <tags><tag>denso</tag></tags>
-	 <participants></participants>
-	 <notes></notes>
-	 <task id="53232824" due="2009-04-06T15:00:00Z" has_due_time="0" added="2009-04-07T08:57:55Z" completed="2009-04-07T14:52:23Z" deleted="" priority="1" postponed="0" estimate=""></task>
-	 </taskseries>
-	 */
-	
+	// get all tasks
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:apiKey forKey:@"api_key"];
 	[params setObject:@"rtm.tasks.getList" forKey:@"method"];
 	[params setObject:token forKey:@"auth_token"];
@@ -296,31 +288,31 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
 		
 		NSXMLElement *task = [[taskseries nodesForXPath:@"task" error:nil] objectAtIndex:0];
-		NSString *due = [[task attributeForName:@"due"] stringValue];
-		NSNumber *priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
-		NSString *estimate  = [[task attributeForName:@"estimate"] stringValue];
+		NSString *ident = [[task attributeForName:@"id"] stringValue];
 		
-		NSLog(@"%@", name);
-		NSLog(@"%@", due);
-		NSLog(@"%@", priority);
-		NSLog(@"%@", estimate);
-		
-		Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
-															inManagedObjectContext:[self managedObjectContext]];
-		taskEntity.due = due;
-		taskEntity.priority = priority;
-		taskEntity.tags = nil;
-		taskEntity.time = estimate;
-		taskEntity.title = name;
-		taskEntity.children = nil;
-		taskEntity.notes = nil;
-		taskEntity.parent = nil;
-		taskEntity.tasklist = nil;
+		// check if the task is already in the db
+		NSFetchRequest *req = [[NSFetchRequest alloc] init];
+		[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:[self managedObjectContext]]];
+		[req setPredicate:[NSPredicate predicateWithFormat:@"(ident = '%@')", ident]];
+		NSError *err = nil;
+		NSLog(@"%@", [[self managedObjectContext] executeFetchRequest:req error:&err]);
+//		if ([[[self managedObjectContext] executeFetchRequest:req error:nil] count] != 0)
+//		{
+			Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
+															 inManagedObjectContext:[self managedObjectContext]];
+			taskEntity.ident = ident;
+			taskEntity.due = [[task attributeForName:@"due"] stringValue];
+			taskEntity.priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
+			taskEntity.tags = nil;
+			taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
+			taskEntity.completed = [[task attributeForName:@"completed"] stringValue];
+			taskEntity.title = name;
+			taskEntity.children = nil;
+			taskEntity.notes = nil;
+			taskEntity.parent = nil;
+			taskEntity.tasklist = nil;
+//		}
 	}
-	
-
-//	NSArray *linkNodes = [rootElement nodesForXPath:@"//frob" error:nil];
-//	NSString *frob = [[linkNodes objectAtIndex:0] stringValue];
 }
 
 /* This function is called after initiating application */
@@ -372,7 +364,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	}
 	
 	// get all tasks
-	[self getTasks:token];
+	[self getAllTasks:token];
 }
 
 
