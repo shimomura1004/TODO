@@ -12,7 +12,7 @@
 {
     IBOutlet NSWindow *window;
 	IBOutlet NSWindow *hudwindow;
-    
+	
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
@@ -23,5 +23,6 @@
 - (NSManagedObjectContext *)managedObjectContext;
 
 - (IBAction)saveAction:sender;
+- (IBAction)completeTask:sender;
 
 @end

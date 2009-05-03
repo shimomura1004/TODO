@@ -215,6 +215,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	
 	return NO;
 }
+
 -(BOOL)panelWindow:(NSPanel *)panelWindow keyDown:(NSEvent *)theEvent
 {
 	NSString *text = [theEvent characters];
@@ -270,7 +271,9 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	return [document rootElement];
 }
 
-
+/**
+ Get all tasks from RTM irrelevant to list
+ */
 - (void) getAllTasks:(NSString *)token
 {
 	// get all tasks
@@ -316,7 +319,16 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	}
 }
 
-/* This function is called after initiating application */
+- (IBAction) completeTask:(id)sender
+{
+	// TODO: implement this method!
+	// 1. get the selected task
+	// 2. fill the 'completed'-field of selected tasks
+}
+
+/**
+ This function is called after initiating application
+ */
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
 	NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"myToken"];
