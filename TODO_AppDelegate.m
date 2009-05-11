@@ -317,22 +317,7 @@ static NSString *token = @"";
 - (void) updateAllTasks
 {
 	NSManagedObjectContext *context = [self managedObjectContext];
-	
-	// first, remove all lists and tasks
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
-	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
-	for (Task *task in [context registeredObjects])
-	{
-		[context deleteObject:task];
-	}
-	req = [[NSFetchRequest alloc] init];
-	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
-	for (TaskList *list in [context registeredObjects])
-	{
-		[context deleteObject:list];
-	}
-	
-	// get lists and tasks
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
 	for (TaskList *list in [context registeredObjects])
 	{
@@ -381,6 +366,22 @@ static NSString *token = @"";
 
 - (IBAction) updateAllListsAndTasks:(id)sender
 {
+	// first, remove all lists and tasks
+	NSManagedObjectContext *context = [self managedObjectContext];
+	NSFetchRequest *req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
+	for (Task *task in [context registeredObjects])
+	{
+		[context deleteObject:task];
+	}
+	req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
+	for (TaskList *list in [context registeredObjects])
+	{
+		[context deleteObject:list];
+	}
+	
+	// get lists and tasks
 	[self updateAllLists];
 	[self updateAllTasks];
 }

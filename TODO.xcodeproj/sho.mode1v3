@@ -346,7 +346,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CAAC9E1F0FB83D1800D117D0</string>
+										<string>CAAC9E230FB83D8800D117D0</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAC0F8E0D9E00A1091D</string>
@@ -612,8 +612,8 @@
 		<string>CAAC9D5E0FB81BAA00D117D0</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>CA51FE8A0F8DE49000A1091D</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/sho/Documents/XCode/TODO/TODO.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 55 1276 723 0 0 1280 778 </string>
