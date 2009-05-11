@@ -14,6 +14,7 @@
 @implementation TODO_AppDelegate
 
 static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
+static NSString *token = @"";
 
 
 /**
@@ -275,7 +276,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 /**
  Get all tasks from RTM irrelevant to list
  */
-- (void) getAllTasks:(NSString *)token
+- (void) getAllTasks
 {
 	// how to get relation?
 	NSEntityDescription *lists = [NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:[self managedObjectContext]];
@@ -328,7 +329,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	 */
 }
 
-- (void) getRtmTask:(NSNumber *)listid withToken:(NSString *)token
+- (void) getRtmTask:(NSNumber *)listid
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
@@ -387,7 +388,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	}
 }
 
-- (void) getAllList:(NSString *)token
+- (void) updateAllLists
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
@@ -401,6 +402,14 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	{
 		NSXMLElement *list = [listArray objectAtIndex:i];
 		NSNumber *listid = [NSNumber numberWithLongLong:[[[list attributeForName:@"id"] stringValue] longLongValue]];
+		
+		TaskList *taskListEntity = [NSEntityDescription insertNewObjectForEntityForName:@"TaskList"
+																 inManagedObjectContext:[self managedObjectContext]];
+		taskListEntity.listid = listid;
+		taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
+		NSLog(taskListEntity.listname);
+		
+		/*
 		// check if the list is already in the db
 		NSFetchRequest *req = [[NSFetchRequest alloc] init];
 		[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:[self managedObjectContext]]];
@@ -416,6 +425,7 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 			taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
 			NSLog(taskListEntity.listname);
 		}
+		 */
 	}
 	
 }
@@ -427,12 +437,19 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 	// 2. fill the 'completed'-field of selected tasks
 }
 
+- (IBAction) updateAllListsAndTasks:(id)sender
+{
+	[self updateAllLists];
+	[self getAllTasks];
+}
+
 /**
  This function is called after initiating application
+ This function tries to get token when there is no available one.
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"myToken"];
+	token = [[NSUserDefaults standardUserDefaults] objectForKey:@"myToken"];
 	if (token) {
 		NSLog(@"Token is found in defaults: %@", token);
 	} else {
@@ -475,10 +492,9 @@ static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 			NSLog(@"Error: couldn't get token");
 			NSLog(@"query is %@", requestURL);
 		}
+
+		[self updateAllListsAndTasks:self];
 	}
-	
-	[self getAllList:token];
-	[self getAllTasks:token];
 }
 
 

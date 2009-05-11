@@ -25,4 +25,6 @@
 - (IBAction)saveAction:sender;
 - (IBAction)completeTask:sender;
 
+- (IBAction)updateAllListsAndTasks:sender;
+
 @end
