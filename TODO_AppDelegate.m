@@ -275,18 +275,25 @@ static NSString *token = @"";
 
 - (void) getRtmTasks:(TaskList *)list
 {
-	NSLog(@"LIST: %@", list);
-	/*
+	// get tasks in specified list
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
-	[params setObject:[listid stringValue] forKey:@"list_id"];
+	[params setObject:[[list listid] stringValue] forKey:@"list_id"];
 	[params setObject:@"rtm.tasks.getList" forKey:@"method"];
 	[params setObject:token forKey:@"auth_token"];
-	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
+							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
 	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
-	
-	// create task
+	for (NSXMLElement *taskseries in taskseriesArray)
+	{
+		//NSLog(@"NAME: %@", [taskseries attributeForName:@"name"]);
+		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
+		
+	}
+
+	/*
+	// register task
 	for (int i=0; i < [taskseriesArray count]; i++)
 	{
 		NSXMLElement *taskseries = [taskseriesArray objectAtIndex:i];
