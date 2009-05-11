@@ -273,64 +273,10 @@ static NSString *token = @"";
 	return [document rootElement];
 }
 
-/**
- Get all tasks from RTM irrelevant to list
- */
-- (void) getAllTasks
+- (void) getRtmTasks:(TaskList *)list
 {
-	// how to get relation?
-	NSEntityDescription *lists = [NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:[self managedObjectContext]];
-	NSLog(@"ENTITY: %@", lists);
-	
-	//[self getRtmTask:[NSNumber numberWithLongLong:8170977] withToken:token];
-
+	NSLog(@"LIST: %@", list);
 	/*
-	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
-	[params setObject:apiKey forKey:@"api_key"];
-	[params setObject:@"rtm.tasks.getList" forKey:@"method"];
-	[params setObject:token forKey:@"auth_token"];
-	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
-	NSXMLElement *rootElement = [self performQuery:requestURL];
-	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
-	
-	// create task
-	for (int i=0; i < [taskseriesArray count]; i++)
-	{
-		NSXMLElement *taskseries = [taskseriesArray objectAtIndex:i];
-		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
-		
-		NSXMLElement *task = [[taskseries nodesForXPath:@"task" error:nil] objectAtIndex:0];
-		NSNumber *taskid = [NSNumber numberWithLongLong:[[[task attributeForName:@"id"] stringValue] longLongValue]];
-		
-		// check if the task is already in the db
-		NSFetchRequest *req = [[NSFetchRequest alloc] init];
-		[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:[self managedObjectContext]]];
-		[req setPredicate:[NSPredicate predicateWithFormat:@"taskid == %@", taskid]];
-		NSError *err = nil;
-		NSArray *entries = [[self managedObjectContext] executeFetchRequest:req error:&err];
-
-		if ([entries count] == 0)
-		{
-			Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
-															 inManagedObjectContext:[self managedObjectContext]];
-			taskEntity.taskid = taskid;
-			taskEntity.due = [[task attributeForName:@"due"] stringValue];
-			taskEntity.priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
-			taskEntity.tags = nil;
-			taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
-			taskEntity.completed = [[task attributeForName:@"completed"] stringValue];
-			taskEntity.title = name;
-			taskEntity.children = nil;
-			taskEntity.notes = nil;
-			taskEntity.parent = nil;
-			taskEntity.tasklist = nil;
-		}
-	}
-	 */
-}
-
-- (void) getRtmTask:(NSNumber *)listid
-{
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
 	[params setObject:[listid stringValue] forKey:@"list_id"];
@@ -386,48 +332,56 @@ static NSString *token = @"";
 			}
 		}
 	}
+	 */
 }
+
+/**
+ Get all tasks from RTM irrelevant to list
+ */
+- (void) getAllTasks
+{
+	NSManagedObjectContext *context = [self managedObjectContext];
+	NSFetchRequest *req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
+	for (TaskList *list in [context registeredObjects])
+	{
+		[self getRtmTasks:list];
+	}
+}
+
 
 - (void) updateAllLists
 {
+	// first, remove all lists
+	NSManagedObjectContext *context = [self managedObjectContext];
+	NSFetchRequest *req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
+	for (TaskList *list in [context registeredObjects])
+	{
+		[context deleteObject:list];
+	}
+	
+	// get lists
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
 	[params setObject:@"rtm.lists.getList" forKey:@"method"];
 	[params setObject:token forKey:@"auth_token"];
-	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
+							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
 	
-	NSArray *listArray = [rootElement nodesForXPath:@"/rsp/lists/list" error:nil];
-	for (int i=0; i < [listArray count]; i++)
+	// register lists
+	for (NSXMLElement *list in [rootElement nodesForXPath:@"/rsp/lists/list" error:nil])
 	{
-		NSXMLElement *list = [listArray objectAtIndex:i];
 		NSNumber *listid = [NSNumber numberWithLongLong:[[[list attributeForName:@"id"] stringValue] longLongValue]];
 		
-		TaskList *taskListEntity = [NSEntityDescription insertNewObjectForEntityForName:@"TaskList"
-																 inManagedObjectContext:[self managedObjectContext]];
+		TaskList *taskListEntity = [NSEntityDescription
+									insertNewObjectForEntityForName:@"TaskList"
+									inManagedObjectContext:context];
 		taskListEntity.listid = listid;
 		taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
 		NSLog(taskListEntity.listname);
-		
-		/*
-		// check if the list is already in the db
-		NSFetchRequest *req = [[NSFetchRequest alloc] init];
-		[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:[self managedObjectContext]]];
-		[req setPredicate:[NSPredicate predicateWithFormat:@"listid == %@", listid]];
-		NSError *err = nil;
-		NSArray *entries = [[self managedObjectContext] executeFetchRequest:req error:&err];
-		
-		if ([entries count] == 0)
-		{
-			TaskList *taskListEntity = [NSEntityDescription insertNewObjectForEntityForName:@"TaskList"
-																	 inManagedObjectContext:[self managedObjectContext]];
-			taskListEntity.listid = listid;
-			taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
-			NSLog(taskListEntity.listname);
-		}
-		 */
 	}
-	
 }
 
 - (IBAction) completeTask:(id)sender
@@ -457,7 +411,8 @@ static NSString *token = @"";
 		NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"rtm.auth.getFrob" forKey:@"method"];
-		NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+		NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
+								stringByAppendingString:[self createRtmQuery:params]];
 		NSXMLElement *rootElement = [self performQuery:requestURL];
 		NSArray *linkNodes = [rootElement nodesForXPath:@"//frob" error:nil];
 		NSString *frob = [[linkNodes objectAtIndex:0] stringValue];
@@ -468,7 +423,8 @@ static NSString *token = @"";
 		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"read" forKey:@"perms"];
 		[params setObject:frob forKey:@"frob"];
-		requestURL = [@"http://www.rememberthemilk.com/services/auth/?" stringByAppendingString:[self createRtmQuery:params]];
+		requestURL = [@"http://www.rememberthemilk.com/services/auth/?"
+					  stringByAppendingString:[self createRtmQuery:params]];
 		/* WAIT HERE FOR USER TO AUTHORIZE! */
 		NSRunAlertPanel(@"Authorize me!", requestURL, @"OK", NULL, NULL);
 		
@@ -477,7 +433,8 @@ static NSString *token = @"";
 		[params setObject:apiKey forKey:@"api_key"];
 		[params setObject:@"rtm.auth.getToken" forKey:@"method"];
 		[params setObject:frob forKey:@"frob"];
-		requestURL = [@"http://api.rememberthemilk.com/services/rest/?" stringByAppendingString:[self createRtmQuery:params]];
+		requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
+					  stringByAppendingString:[self createRtmQuery:params]];
 		rootElement = [self performQuery:requestURL];
 		linkNodes = [rootElement nodesForXPath:@"//token" error:nil];
 		NSString *token = [[linkNodes objectAtIndex:0] stringValue];
