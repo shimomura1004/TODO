@@ -285,7 +285,6 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
-	NSLog(@"%@", rootElement);
 	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
 	
 	for (NSXMLElement *taskseries in taskseriesArray)
@@ -297,20 +296,18 @@ static NSString *token = @"";
 		taskEntity.tags = [[[[taskseries childAtIndex:0] children] valueForKey:@"stringValue"]
 						   componentsJoinedByString:@","];
 		
-		NSXMLNode *task = [taskseries childAtIndex:3];
-//		[task attributeForName:<#(NSString *)name#>
+		NSXMLElement *task = [[NSXMLElement alloc]
+							  initWithXMLString:[[taskseries childAtIndex:3] XMLString] error:nil];
+		taskEntity.due = [[task attributeForName:@"due"] stringValue];
+		int pri = [[[task attributeForName:@"priority"] stringValue] intValue];
+		taskEntity.priority = [NSNumber numberWithInt:(pri==0?0:4-pri)];
+		taskEntity.completed = [[task attributeForName:@"completed"] stringValue];
+		taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
 		
 		taskEntity.tasklist = list;
 		taskEntity.parent = nil;
 		taskEntity.children = nil;
 		taskEntity.notes = nil;			// [[taskseries childAtIndex:2] children]
-		
-		/*
-		 completed
-		 due
-		 priority
-		 time
-		 */
 	}
 }
 
