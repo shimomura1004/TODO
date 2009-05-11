@@ -275,7 +275,8 @@ static NSString *token = @"";
 
 - (void) getRtmTasks:(TaskList *)list
 {
-	// get tasks in specified list
+	NSManagedObjectContext *context = [self managedObjectContext];
+
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
 	[params setObject:apiKey forKey:@"api_key"];
 	[params setObject:[[list listid] stringValue] forKey:@"list_id"];
@@ -284,62 +285,33 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
+	NSLog(@"%@", rootElement);
 	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
+	
 	for (NSXMLElement *taskseries in taskseriesArray)
 	{
-		//NSLog(@"NAME: %@", [taskseries attributeForName:@"name"]);
-		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
+		Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
+												inManagedObjectContext:context];
+		taskEntity.title = [[taskseries attributeForName:@"name"] stringValue];
+		taskEntity.taskid = [NSNumber numberWithLongLong:[[[taskseries attributeForName:@"id"] stringValue] longLongValue]];
+		taskEntity.tags = [[[[taskseries childAtIndex:0] children] valueForKey:@"stringValue"]
+						   componentsJoinedByString:@","];
 		
+		NSXMLNode *task = [taskseries childAtIndex:3];
+//		[task attributeForName:<#(NSString *)name#>
+		
+		taskEntity.tasklist = list;
+		taskEntity.parent = nil;
+		taskEntity.children = nil;
+		taskEntity.notes = nil;			// [[taskseries childAtIndex:2] children]
+		
+		/*
+		 completed
+		 due
+		 priority
+		 time
+		 */
 	}
-
-	/*
-	// register task
-	for (int i=0; i < [taskseriesArray count]; i++)
-	{
-		NSXMLElement *taskseries = [taskseriesArray objectAtIndex:i];
-		NSString *name = [[taskseries attributeForName:@"name"] stringValue];
-		
-		NSXMLElement *task = [[taskseries nodesForXPath:@"task" error:nil] objectAtIndex:0];
-		NSNumber *taskid = [NSNumber numberWithLongLong:[[[task attributeForName:@"id"] stringValue] longLongValue]];
-		
-		// check if the task is already in the db
-		NSFetchRequest *req = [[NSFetchRequest alloc] init];
-		[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:[self managedObjectContext]]];
-		[req setPredicate:[NSPredicate predicateWithFormat:@"taskid == %@", taskid]];
-		NSError *err = nil;
-		NSArray *entries = [[self managedObjectContext] executeFetchRequest:req error:&err];
-		
-		if ([entries count] == 0)
-		{
-			Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Task"
-															 inManagedObjectContext:[self managedObjectContext]];
-			taskEntity.taskid = taskid;
-			taskEntity.due = [[task attributeForName:@"due"] stringValue];
-			taskEntity.priority = [NSNumber numberWithInt:[[[task attributeForName:@"priority"] stringValue] intValue]];
-			taskEntity.tags = nil;
-			taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
-			taskEntity.completed = [[task attributeForName:@"completed"] stringValue];
-			taskEntity.title = name;
-			taskEntity.children = nil;
-			taskEntity.notes = nil;
-			taskEntity.parent = nil;
-		
-			NSFetchRequest *listreq = [[NSFetchRequest alloc] init];
-			[listreq setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:[self managedObjectContext]]];
-			[listreq setPredicate:[NSPredicate predicateWithFormat:@"listid == %@", listid]];
-			NSError *err = nil;
-			NSArray *entries = [[self managedObjectContext] executeFetchRequest:req error:&err];
-			if ([entries count] == 0)
-			{
-				NSLog(@"FOUND LIST: %@", [entries objectAtIndex:0]);
-				// how to set relation?
-				taskEntity.tasklist = [entries objectAtIndex:0];
-			} else {
-				taskEntity.tasklist = nil;
-			}
-		}
-	}
-	 */
 }
 
 /**
