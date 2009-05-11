@@ -276,23 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
-									<integer>1</integer>
-									<integer>0</integer>
-								</array>
-								<array>
-									<integer>10</integer>
-									<integer>9</integer>
-									<integer>0</integer>
-								</array>
-								<array>
 									<integer>11</integer>
 									<integer>9</integer>
-									<integer>0</integer>
-								</array>
-								<array>
-									<integer>22</integer>
-									<integer>19</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -346,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CAAC9E290FB8412A00D117D0</string>
+										<string>CAAC9E480FB85DB200D117D0</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAC0F8E0D9E00A1091D</string>
@@ -364,14 +349,16 @@
 											<string>CAAC9D320FB8170D00D117D0</string>
 											<string>CAAC9D330FB8170D00D117D0</string>
 											<string>CAAC9D340FB8170D00D117D0</string>
-											<string>CAAC9D690FB81F0800D117D0</string>
 											<string>CAAC9D6C0FB81F0800D117D0</string>
-											<string>CAAC9D6D0FB81F0800D117D0</string>
 											<string>CAAC9D6F0FB81F0800D117D0</string>
 											<string>CAAC9D890FB820CF00D117D0</string>
 											<string>CAAC9DE90FB8362100D117D0</string>
 											<string>CAAC9DF90FB8377500D117D0</string>
-											<string>CAAC9DFA0FB8377500D117D0</string>
+											<string>CAAC9E330FB85AE400D117D0</string>
+											<string>CAAC9E340FB85AE400D117D0</string>
+											<string>CAAC9E350FB85AE400D117D0</string>
+											<string>CAAC9E360FB85AE400D117D0</string>
+											<string>CAAC9E370FB85AE400D117D0</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -414,6 +401,11 @@
 											<string>CAAC9DFC0FB8377500D117D0</string>
 											<string>CAAC9DFD0FB8377500D117D0</string>
 											<string>CAAC9DFE0FB8377500D117D0</string>
+											<string>CAAC9E380FB85AE400D117D0</string>
+											<string>CAAC9E390FB85AE400D117D0</string>
+											<string>CAAC9E3A0FB85AE400D117D0</string>
+											<string>CAAC9E3B0FB85AE400D117D0</string>
+											<string>CAAC9E3C0FB85AE400D117D0</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

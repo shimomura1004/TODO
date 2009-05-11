@@ -343,6 +343,7 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
+	NSLog(@"%@", rootElement);
 	
 	// register lists
 	for (NSXMLElement *list in [rootElement nodesForXPath:@"/rsp/lists/list" error:nil])
@@ -368,22 +369,27 @@ static NSString *token = @"";
 {
 	// first, remove all lists and tasks
 	NSManagedObjectContext *context = [self managedObjectContext];
+	
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
 	for (Task *task in [context registeredObjects])
 	{
 		[context deleteObject:task];
 	}
+	
 	req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
 	for (TaskList *list in [context registeredObjects])
 	{
 		[context deleteObject:list];
 	}
+
+	[self saveAction:NULL];
 	
 	// get lists and tasks
 	[self updateAllLists];
 	[self updateAllTasks];
+	[self saveAction:NULL];
 }
 
 /**
