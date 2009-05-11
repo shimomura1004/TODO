@@ -18,7 +18,7 @@
 			CA58F1690FAD225B006C5C14 /* TODO_AppDelegate.m:276 */,
 			CA58F18D0FAD24EC006C5C14 /* TODO_AppDelegate.m:276 */,
 			CA58F1980FAD2563006C5C14 /* TODO_AppDelegate.m:276 */,
-			CAC420B30FAD85DD0030D153 /* TodoTreeController.m:18 */,
+			CAAC9EBF0FB8770F00D117D0 /* TodoTreeController.m:17 */,
 		);
 		codeSenseManager = CA51FE7E0F8DDFC600A1091D /* Code sense */;
 		executables = (
@@ -336,6 +336,12 @@
 			CAAC9EAF0FB8725800D117D0 /* PBXTextBookmark */ = CAAC9EAF0FB8725800D117D0 /* PBXTextBookmark */;
 			CAAC9EB20FB8729B00D117D0 /* PBXTextBookmark */ = CAAC9EB20FB8729B00D117D0 /* PBXTextBookmark */;
 			CAAC9EB30FB872CF00D117D0 /* PBXTextBookmark */ = CAAC9EB30FB872CF00D117D0 /* PBXTextBookmark */;
+			CAAC9EB80FB8766C00D117D0 /* PBXTextBookmark */ = CAAC9EB80FB8766C00D117D0 /* PBXTextBookmark */;
+			CAAC9EBB0FB8767E00D117D0 /* PBXTextBookmark */ = CAAC9EBB0FB8767E00D117D0 /* PBXTextBookmark */;
+			CAAC9EBD0FB8769900D117D0 /* PBXTextBookmark */ = CAAC9EBD0FB8769900D117D0 /* PBXTextBookmark */;
+			CAAC9EC10FB8776F00D117D0 /* PBXTextBookmark */ = CAAC9EC10FB8776F00D117D0 /* PBXTextBookmark */;
+			CAAC9EC20FB8777000D117D0 /* PBXTextBookmark */ = CAAC9EC20FB8777000D117D0 /* PBXTextBookmark */;
+			CAAC9EC30FB877CC00D117D0 /* PBXTextBookmark */ = CAAC9EC30FB877CC00D117D0 /* PBXTextBookmark */;
 			CAC420B50FAD85F40030D153 = CAC420B50FAD85F40030D153 /* PBXTextBookmark */;
 			CAC420B70FAD85F40030D153 = CAC420B70FAD85F40030D153 /* PBXTextBookmark */;
 			CAC420B90FAD85F40030D153 = CAC420B90FAD85F40030D153 /* PBXTextBookmark */;
@@ -527,7 +533,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {439, 434}}";
 			sepNavSelRange = "{693, 5}";
-			sepNavVisRange = "{326, 367}";
+			sepNavVisRange = "{326, 372}";
 		};
 	};
 	77C8280C06725ACE000B614F /* TODO_AppDelegate.m */ = {
@@ -680,7 +686,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 20";
 		rLen = 0;
-		rLoc = 266;
+		rLoc = 332;
 		rType = 0;
 		vrLen = 270;
 		vrLoc = 0;
@@ -716,7 +722,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -830,7 +836,7 @@
 		ignoreCount = 0;
 		lineNumber = 276;
 		location = TODO;
-		modificationTime = 263745829.39082;
+		modificationTime = 263747346.87311;
 		state = 2;
 	};
 	CA58F18D0FAD24EC006C5C14 /* TODO_AppDelegate.m:276 */ = {
@@ -847,7 +853,7 @@
 		ignoreCount = 0;
 		lineNumber = 276;
 		location = TODO;
-		modificationTime = 263745829.390838;
+		modificationTime = 263747346.873126;
 		state = 2;
 	};
 	CA58F1980FAD2563006C5C14 /* TODO_AppDelegate.m:276 */ = {
@@ -863,7 +869,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 276;
-		modificationTime = 263745829.390843;
+		modificationTime = 263747346.873133;
 		state = 2;
 	};
 	CA58F1B30FAD282E006C5C14 /* PBXTextBookmark */ = {
@@ -928,8 +934,8 @@
 	CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1007, 543}}";
-			sepNavSelRange = "{264, 0}";
-			sepNavVisRange = "{0, 272}";
+			sepNavSelRange = "{219, 0}";
+			sepNavVisRange = "{0, 338}";
 		};
 	};
 	CA741FF70FA4AC7E00949482 /* PBXTextBookmark */ = {
@@ -6742,7 +6748,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 20";
 		rLen = 0;
-		rLoc = 266;
+		rLoc = 332;
 		rType = 0;
 		vrLen = 270;
 		vrLoc = 0;
@@ -6782,7 +6788,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 20";
 		rLen = 0;
-		rLoc = 266;
+		rLoc = 332;
 		rType = 0;
 		vrLen = 270;
 		vrLoc = 0;
@@ -6822,7 +6828,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 381;
 		vrLoc = 0;
@@ -6832,7 +6838,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 21";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 389;
 		vrLoc = 0;
@@ -6842,7 +6848,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 23";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 429;
 		vrLoc = 0;
@@ -6852,7 +6858,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 471;
 		vrLoc = 0;
@@ -6862,7 +6868,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 479;
 		vrLoc = 0;
@@ -6882,7 +6888,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 434;
 		vrLoc = 0;
@@ -6892,7 +6898,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 446;
 		vrLoc = 0;
@@ -6902,7 +6908,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 483;
 		vrLoc = 0;
@@ -6912,7 +6918,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 530;
 		vrLoc = 0;
@@ -6922,7 +6928,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 24";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 547;
 		vrLoc = 0;
@@ -6932,7 +6938,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 592;
 		vrLoc = 0;
@@ -6942,7 +6948,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 602;
 		vrLoc = 0;
@@ -6952,7 +6958,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 622;
 		vrLoc = 0;
@@ -6962,7 +6968,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 622;
 		vrLoc = 0;
@@ -6972,7 +6978,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 631;
 		vrLoc = 0;
@@ -6982,7 +6988,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 26";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 547;
 		vrLoc = 0;
@@ -6992,7 +6998,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 565;
 		vrLoc = 0;
@@ -7002,7 +7008,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 553;
 		vrLoc = 0;
@@ -7012,7 +7018,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 544;
 		vrLoc = 0;
@@ -7022,7 +7028,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 567;
 		vrLoc = 0;
@@ -7032,7 +7038,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 559;
 		vrLoc = 0;
@@ -7215,7 +7221,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 559;
 		vrLoc = 0;
@@ -7225,7 +7231,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 25";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 559;
 		vrLoc = 0;
@@ -7408,7 +7414,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 28";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -7418,7 +7424,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 23";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 539;
 		vrLoc = 0;
@@ -7428,9 +7434,86 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 20";
 		rLen = 0;
-		rLoc = 264;
+		rLoc = 330;
 		rType = 0;
 		vrLen = 272;
+		vrLoc = 0;
+	};
+	CAAC9EB80FB8766C00D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		name = "TodoTreeController.m: 24";
+		rLen = 0;
+		rLoc = 320;
+		rType = 0;
+		vrLen = 342;
+		vrLoc = 0;
+	};
+	CAAC9EBB0FB8767E00D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		name = "TodoTreeController.m: 24";
+		rLen = 0;
+		rLoc = 307;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	CAAC9EBD0FB8769900D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		name = "TodoTreeController.m: 23";
+		rLen = 0;
+		rLoc = 281;
+		rType = 0;
+		vrLen = 384;
+		vrLoc = 0;
+	};
+	CAAC9EBF0FB8770F00D117D0 /* TodoTreeController.m:17 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		functionName = "-arrangedObjects";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 17;
+		location = TODO;
+		modificationTime = 263747350.434357;
+		state = 1;
+	};
+	CAAC9EC10FB8776F00D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 77C8280B06725ACE000B614F /* TODO_AppDelegate.h */;
+		name = "TODO_AppDelegate.h: 30";
+		rLen = 5;
+		rLoc = 693;
+		rType = 0;
+		vrLen = 372;
+		vrLoc = 326;
+	};
+	CAAC9EC20FB8777000D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		name = "TodoTreeController.m: 25";
+		rLen = 0;
+		rLoc = 328;
+		rType = 0;
+		vrLen = 384;
+		vrLoc = 0;
+	};
+	CAAC9EC30FB877CC00D117D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
+		name = "TodoTreeController.m: 14";
+		rLen = 0;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 338;
 		vrLoc = 0;
 	};
 	CABFF4AA0FA5F2630006CBC8 /* TodoOutlineView.h */ = {
@@ -7446,23 +7529,6 @@
 			sepNavSelRange = "{467, 0}";
 			sepNavVisRange = "{0, 473}";
 		};
-	};
-	CAC420B30FAD85DD0030D153 /* TodoTreeController.m:18 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
-		functionName = "-arrangedObjects";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 18;
-		location = TODO;
-		modificationTime = 263745829.390849;
-		state = 2;
 	};
 	CAC420B50FAD85F40030D153 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -7536,7 +7602,7 @@
 		fRef = CA58F2350FAD7A60006C5C14 /* TodoTreeController.m */;
 		name = "TodoTreeController.m: 17";
 		rLen = 0;
-		rLoc = 259;
+		rLoc = 219;
 		rType = 0;
 		vrLen = 270;
 		vrLoc = 0;

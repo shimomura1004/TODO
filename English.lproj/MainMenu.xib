@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="969"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -396,7 +395,7 @@
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSWindowContentMinSize">{600, 400}</string>
 				<object class="NSView" key="NSWindowView" id="1026813258">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -610,7 +609,6 @@
 																	</object>
 																	<string key="NSFrame">{{1, 17}, {111, 136}}</string>
 																	<reference key="NSSuperview" ref="102645843"/>
-																	<reference key="NSNextKeyView" ref="647943727"/>
 																	<reference key="NSDocView" ref="647943727"/>
 																	<reference key="NSBGColor" ref="841173313"/>
 																	<int key="NScvFlags">4</int>
@@ -643,7 +641,6 @@
 																	</object>
 																	<string key="NSFrame">{{1, 0}, {111, 17}}</string>
 																	<reference key="NSSuperview" ref="102645843"/>
-																	<reference key="NSNextKeyView" ref="754629716"/>
 																	<reference key="NSDocView" ref="754629716"/>
 																	<reference key="NSBGColor" ref="946946585"/>
 																	<int key="NScvFlags">4</int>
@@ -652,7 +649,6 @@
 															</object>
 															<string key="NSFrameSize">{113, 154}</string>
 															<reference key="NSSuperview" ref="372268675"/>
-															<reference key="NSNextKeyView" ref="298840641"/>
 															<int key="NSsFlags">530</int>
 															<reference key="NSVScroller" ref="322802961"/>
 															<reference key="NSHScroller" ref="951656503"/>
@@ -755,7 +751,6 @@
 																	</object>
 																	<string key="NSFrame">{{1, 17}, {111, 181}}</string>
 																	<reference key="NSSuperview" ref="1000298722"/>
-																	<reference key="NSNextKeyView" ref="1067822180"/>
 																	<reference key="NSDocView" ref="1067822180"/>
 																	<reference key="NSBGColor" ref="841173313"/>
 																	<int key="NScvFlags">4</int>
@@ -788,7 +783,6 @@
 																	</object>
 																	<string key="NSFrame">{{1, 0}, {111, 17}}</string>
 																	<reference key="NSSuperview" ref="1000298722"/>
-																	<reference key="NSNextKeyView" ref="805556916"/>
 																	<reference key="NSDocView" ref="805556916"/>
 																	<reference key="NSBGColor" ref="946946585"/>
 																	<int key="NScvFlags">4</int>
@@ -797,7 +791,6 @@
 															</object>
 															<string key="NSFrameSize">{113, 199}</string>
 															<reference key="NSSuperview" ref="479237053"/>
-															<reference key="NSNextKeyView" ref="63544077"/>
 															<int key="NSsFlags">530</int>
 															<reference key="NSVScroller" ref="719127352"/>
 															<reference key="NSHScroller" ref="94716059"/>
@@ -986,7 +979,6 @@
 													</object>
 													<string key="NSFrame">{{1, 17}, {488, 362}}</string>
 													<reference key="NSSuperview" ref="812975285"/>
-													<reference key="NSNextKeyView" ref="357777120"/>
 													<reference key="NSDocView" ref="357777120"/>
 													<reference key="NSBGColor" ref="946946585"/>
 													<int key="NScvFlags">4</int>
@@ -1020,7 +1012,6 @@
 													</object>
 													<string key="NSFrame">{{1, 0}, {488, 17}}</string>
 													<reference key="NSSuperview" ref="812975285"/>
-													<reference key="NSNextKeyView" ref="746831106"/>
 													<reference key="NSDocView" ref="746831106"/>
 													<reference key="NSBGColor" ref="946946585"/>
 													<int key="NScvFlags">4</int>
@@ -1029,7 +1020,6 @@
 											</object>
 											<string key="NSFrameSize">{490, 380}</string>
 											<reference key="NSSuperview" ref="44227514"/>
-											<reference key="NSNextKeyView" ref="812175080"/>
 											<int key="NSsFlags">530</int>
 											<reference key="NSVScroller" ref="460475115"/>
 											<reference key="NSHScroller" ref="797829444"/>
@@ -1051,7 +1041,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{604, 400}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{600, 453}</string>
@@ -5842,7 +5831,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1376</int>
+			<int key="maxID">1377</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

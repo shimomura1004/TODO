@@ -11,13 +11,12 @@
 
 @implementation TodoTreeController
 
-/*
 -(id) arrangedObjects
 {
-	return nil;
+	id mycontent = [super arrangedObjects];
+	NSLog(@"%@", mycontent);
+	return mycontent;
 }
-*/
-
 
 
 @end
