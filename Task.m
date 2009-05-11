@@ -8,19 +8,20 @@
 
 #import "Task.h"
 
+#import "TaskList.h"
 
 @implementation Task 
 
+@dynamic priority;
+@dynamic taskid;
 @dynamic completed;
-@dynamic rtmid;
 @dynamic title;
 @dynamic due;
 @dynamic tags;
 @dynamic time;
-@dynamic priority;
 @dynamic parent;
-@dynamic tasklist;
 @dynamic children;
 @dynamic notes;
+@dynamic tasklist;
 
 @end

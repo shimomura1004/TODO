@@ -8,22 +8,23 @@
 
 #import <CoreData/CoreData.h>
 
+@class TaskList;
 
 @interface Task :  NSManagedObject  
 {
 }
 
+@property (retain) NSNumber * priority;
+@property (retain) NSNumber * taskid;
 @property (retain) NSString * completed;
-@property (retain) NSNumber * rtmid;
 @property (retain) NSString * title;
 @property (retain) NSString * due;
 @property (retain) NSString * tags;
 @property (retain) NSString * time;
-@property (retain) NSNumber * priority;
 @property (retain) Task * parent;
-@property (retain) NSManagedObject * tasklist;
 @property (retain) NSSet* children;
 @property (retain) NSSet* notes;
+@property (retain) TaskList * tasklist;
 
 @end
 
