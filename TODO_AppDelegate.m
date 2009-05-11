@@ -273,7 +273,7 @@ static NSString *token = @"";
 	return [document rootElement];
 }
 
-- (void) getRtmTasks:(TaskList *)list
+- (void) updateRtmTasks:(TaskList *)list
 {
 	NSManagedObjectContext *context = [self managedObjectContext];
 
@@ -314,28 +314,41 @@ static NSString *token = @"";
 /**
  Get all tasks from RTM irrelevant to list
  */
-- (void) getAllTasks
+- (void) updateAllTasks
 {
 	NSManagedObjectContext *context = [self managedObjectContext];
+	
+	// first, remove all lists and tasks
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
+	for (Task *task in [context registeredObjects])
+	{
+		[context deleteObject:task];
+	}
+	req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
 	for (TaskList *list in [context registeredObjects])
 	{
-		[self getRtmTasks:list];
+		[context deleteObject:list];
+	}
+	
+	// get lists and tasks
+	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
+	for (TaskList *list in [context registeredObjects])
+	{
+		NSLog(@"GETTING: %@", [list listname]);
+		// do not get task if list is 'All Tasks'
+		if (![[list listname] isEqualTo:@"All Tasks"])
+		{
+			[self updateRtmTasks:list];
+		}
 	}
 }
 
 
 - (void) updateAllLists
 {
-	// first, remove all lists
 	NSManagedObjectContext *context = [self managedObjectContext];
-	NSFetchRequest *req = [[NSFetchRequest alloc] init];
-	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
-	for (TaskList *list in [context registeredObjects])
-	{
-		[context deleteObject:list];
-	}
 	
 	// get lists
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
@@ -356,7 +369,6 @@ static NSString *token = @"";
 									inManagedObjectContext:context];
 		taskListEntity.listid = listid;
 		taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
-		NSLog(taskListEntity.listname);
 	}
 }
 
@@ -370,7 +382,7 @@ static NSString *token = @"";
 - (IBAction) updateAllListsAndTasks:(id)sender
 {
 	[self updateAllLists];
-	[self getAllTasks];
+	[self updateAllTasks];
 }
 
 /**

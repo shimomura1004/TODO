@@ -290,6 +290,11 @@
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
+								<array>
+									<integer>22</integer>
+									<integer>19</integer>
+									<integer>0</integer>
+								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
 							<string>{{0, 0}, {186, 664}}</string>
@@ -341,7 +346,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CAAC9E050FB8382A00D117D0</string>
+										<string>CAAC9E1F0FB83D1800D117D0</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAC0F8E0D9E00A1091D</string>
@@ -1458,7 +1463,7 @@
 								<key>RubberWindowFrame</key>
 								<string>21 399 500 356 0 0 1280 778 </string>
 								<key>XCRefactoringSplitViewLowerHeight</key>
-								<real>112</real>
+								<real>159</real>
 								<key>XCRefactoringSplitViewTotalHeight</key>
 								<real>232</real>
 							</dict>
