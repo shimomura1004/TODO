@@ -440,7 +440,14 @@ static NSString *token = @"";
 		}
 
 		[self updateAllListsAndTasks:self];
+		
+		// stamp the time of last sync
+		[[NSUserDefaults standardUserDefaults]
+		 setObject:[[NSCalendarDate calendarDate] description]
+		 forKey:@"lastupdate"];
 	}
+	
+	NSLog(@"now: %@", [[NSCalendarDate calendarDate] description]);
 }
 
 
