@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CA3FA98A0FB9B16D00EA6A90</string>
+										<string>CA3FA9950FB9BB1D00EA6A90</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAC0F8E0D9E00A1091D</string>
@@ -619,8 +619,8 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>CA51FE8A0F8DE49000A1091D</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/sho/Documents/XCode/TODO/TODO.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -1003,7 +1003,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

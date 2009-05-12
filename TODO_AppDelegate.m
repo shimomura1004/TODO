@@ -285,6 +285,8 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
+	NSLog(@"%@", rootElement);
+
 	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
 	
 	for (NSXMLElement *taskseries in taskseriesArray)
@@ -305,7 +307,12 @@ static NSString *token = @"";
 		taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
 		
 		taskEntity.tasklist = list;
-		taskEntity.notes = nil;			// [[taskseries childAtIndex:2] children]
+		
+		
+		NSXMLElement *notes = [[taskseries childAtIndex:2] children];
+		
+		
+		taskEntity.notes = nil;
 	}
 }
 
@@ -341,7 +348,6 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
-	NSLog(@"%@", rootElement);
 	
 	// register lists
 	for (NSXMLElement *list in [rootElement nodesForXPath:@"/rsp/lists/list" error:nil])
