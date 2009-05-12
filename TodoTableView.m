@@ -16,14 +16,12 @@
 	id delegate = [self delegate];
 	if ([delegate respondsToSelector:@selector(tableView:keyDown:)])
 	{
-		NSLog(@"A");
 		if(![delegate tableView:self keyDown:theEvent])
 		{
 			[super keyDown:theEvent];
 		}
 	} else {
-		NSLog(@"B");
-		[super keyDown:theEvent];
+			[super keyDown:theEvent];
 	}
 }
 

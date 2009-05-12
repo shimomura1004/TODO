@@ -202,7 +202,6 @@ static NSString *token = @"";
 
 -(BOOL)tableView:(NSTableView *)tableView keyDown:(NSEvent *)theEvent
 {
-	NSLog(@"space");
 	NSString *text = [theEvent characters];
 	
 	if ([text isEqualToString:@" "])
