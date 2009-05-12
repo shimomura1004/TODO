@@ -2,7 +2,7 @@
 //  Task.m
 //  TODO
 //
-//  Created by 下村 翔 on 5/11/09.
+//  Created by 下村 翔 on 5/12/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,15 +13,13 @@
 
 @implementation Task 
 
-@dynamic tags;
-@dynamic time;
-@dynamic completed;
-@dynamic title;
-@dynamic priority;
 @dynamic taskid;
 @dynamic due;
-@dynamic parent;
-@dynamic children;
+@dynamic completed;
+@dynamic tags;
+@dynamic time;
+@dynamic title;
+@dynamic priority;
 @dynamic notes;
 @dynamic tasklist;
 

@@ -200,8 +200,9 @@ static NSString *token = @"";
 	return [NSString stringWithCString:md5cstring length:CC_MD5_DIGEST_LENGTH*2];
 }
 
--(BOOL)outlineView:(NSOutlineView *)outlineView keyDown:(NSEvent *)theEvent
+-(BOOL)tableView:(NSTableView *)tableView keyDown:(NSEvent *)theEvent
 {
+	NSLog(@"space");
 	NSString *text = [theEvent characters];
 	
 	if ([text isEqualToString:@" "])
@@ -305,8 +306,6 @@ static NSString *token = @"";
 		taskEntity.time = [[task attributeForName:@"estimate"] stringValue];
 		
 		taskEntity.tasklist = list;
-		taskEntity.parent = nil;
-		taskEntity.children = nil;
 		taskEntity.notes = nil;			// [[taskseries childAtIndex:2] children]
 	}
 }
