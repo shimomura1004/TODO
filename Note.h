@@ -2,7 +2,7 @@
 //  Note.h
 //  TODO
 //
-//  Created by 下村 翔 on 5/11/09.
+//  Created by 下村 翔 on 5/13/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 }
 
 @property (retain) NSString * content;
-@property (retain) Task * todo;
+@property (retain) Task * task;
 
 @end
 

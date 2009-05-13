@@ -10,6 +10,8 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "Task.h"
 #import "TaskList.h"
+#import "Note.h"
+#import "Predicate.h"
 
 @implementation TODO_AppDelegate
 
@@ -308,11 +310,17 @@ static NSString *token = @"";
 		
 		taskEntity.tasklist = list;
 		
+		NSXMLElement *notes = [[NSXMLElement alloc]
+							   initWithXMLString:[[taskseries childAtIndex:2] XMLString] error:nil];
+		for (NSXMLElement *note in [notes children])
+		{
+			Note *noteEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+													inManagedObjectContext:context];
+			noteEntity.content = [note stringValue];
+			noteEntity.task = taskEntity;
+		}
 		
-		NSXMLElement *notes = [[taskseries childAtIndex:2] children];
-		
-		
-		taskEntity.notes = nil;
+		//taskEntity.notes = nil;
 	}
 }
 
