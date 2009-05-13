@@ -14,6 +14,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CA0200190FADE1D80018884A /* TaskList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0200180FADE1D80018884A /* TaskList.m */; };
+		CA3B4F9D0FBAAAD600C6ABAA /* Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */; };
 		CA3FA8CB0FB9987600EA6A90 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8CA0FB9987600EA6A90 /* Task.m */; };
 		CA3FA8FE0FB9A04300EA6A90 /* TodoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */; };
 		CAAC9D650FB81DA300D117D0 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAC9D640FB81DA300D117D0 /* Note.m */; };
@@ -36,6 +37,8 @@
 		8D1107320486CEB800E47090 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0200170FADE1D80018884A /* TaskList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskList.h; sourceTree = "<group>"; };
 		CA0200180FADE1D80018884A /* TaskList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskList.m; sourceTree = "<group>"; };
+		CA3B4F9B0FBAAAD600C6ABAA /* Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
+		CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predicate.m; sourceTree = "<group>"; };
 		CA3FA8C90FB9987600EA6A90 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		CA3FA8CA0FB9987600EA6A90 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTableView.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA3B4F9B0FBAAAD600C6ABAA /* Predicate.h */,
+				CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */,
 				CA3FA8C90FB9987600EA6A90 /* Task.h */,
 				CA3FA8CA0FB9987600EA6A90 /* Task.m */,
 				CAAC9D630FB81DA300D117D0 /* Note.h */,
@@ -215,6 +220,7 @@
 				CAAC9D650FB81DA300D117D0 /* Note.m in Sources */,
 				CA3FA8CB0FB9987600EA6A90 /* Task.m in Sources */,
 				CA3FA8FE0FB9A04300EA6A90 /* TodoTableView.m in Sources */,
+				CA3B4F9D0FBAAAD600C6ABAA /* Predicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
