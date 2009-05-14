@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CA7186EC0FBBF8DE00460D6C</string>
+										<string>CA0774400FBC15CD00621F5F</string>
 										<key>history</key>
 										<array>
 											<string>CA51FEAC0F8E0D9E00A1091D</string>
@@ -353,7 +353,7 @@
 											<string>CAE41D660FBBE121002FC8B0</string>
 											<string>CAE41D670FBBE121002FC8B0</string>
 											<string>CAE41D680FBBE121002FC8B0</string>
-											<string>CAE41DA80FBBF3B8002FC8B0</string>
+											<string>CA7186F20FBBFA9600460D6C</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -430,9 +430,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>CA7186C90FBBF3F000460D6C</string>
+				<string>CA0774410FBC15CD00621F5F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>CA7186CA0FBBF3F000460D6C</string>
+				<string>CA0774420FBC15CD00621F5F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -566,12 +566,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>CA7186ED0FBBF8DE00460D6C</string>
-		<string>CA7186EE0FBBF8DE00460D6C</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>CA51FE8A0F8DE49000A1091D</string>
 		<string>/Users/sho/Documents/XCode/TODO/TODO.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 55 1276 723 0 0 1280 778 </string>
