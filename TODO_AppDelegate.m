@@ -287,7 +287,6 @@ static NSString *token = @"";
 	NSString *requestURL = [@"http://api.rememberthemilk.com/services/rest/?"
 							stringByAppendingString:[self createRtmQuery:params]];
 	NSXMLElement *rootElement = [self performQuery:requestURL];
-	NSLog(@"%@", rootElement);
 
 	NSArray *taskseriesArray = [rootElement nodesForXPath:@"/rsp/tasks/list/taskseries" error:nil];
 	
@@ -319,8 +318,6 @@ static NSString *token = @"";
 			noteEntity.content = [note stringValue];
 			noteEntity.task = taskEntity;
 		}
-		
-		//taskEntity.notes = nil;
 	}
 }
 
@@ -332,7 +329,7 @@ static NSString *token = @"";
 	NSManagedObjectContext *context = [self managedObjectContext];
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
-	for (TaskList *list in [context registeredObjects])
+	for (TaskList *list in [context executeFetchRequest:req error:nil])
 	{
 		NSLog(@"GETTING: %@", [list listname]);
 		// do not get task if list is 'All Tasks'
@@ -341,6 +338,7 @@ static NSString *token = @"";
 			[self updateRtmTasks:list];
 		}
 	}
+	NSLog(@"Complete: update all tasks");
 }
 
 
@@ -368,6 +366,26 @@ static NSString *token = @"";
 		taskListEntity.listid = listid;
 		taskListEntity.listname = [[list attributeForName:@"name"] stringValue];
 	}
+	
+	NSLog(@"Complete: update all lists");
+}
+
+- (void) updateAllPredicates
+{
+	NSManagedObjectContext *context = [self managedObjectContext];
+	NSFetchRequest *req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
+	for (TaskList *list in [context executeFetchRequest:req error:nil])
+	{
+		Predicate *predicateEntity = [NSEntityDescription
+									  insertNewObjectForEntityForName:@"Predicate"
+									  inManagedObjectContext:context];
+		predicateEntity.title = list.listname;
+		predicateEntity.isSmartList = NO;
+		predicateEntity.predicateString = [[@"title = '" stringByAppendingString:list.listname]
+										   stringByAppendingString:@"'"];
+	}
+	NSLog(@"Complete: update all predicates");
 }
 
 - (IBAction) completeTask:(id)sender
@@ -382,26 +400,35 @@ static NSString *token = @"";
 	// first, remove all lists and tasks
 	NSManagedObjectContext *context = [self managedObjectContext];
 	
+	NSLog(@"Delete all tasks");
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
-	for (Task *task in [context registeredObjects])
+	for (Task *task in [context executeFetchRequest:req error:nil])
 	{
 		[context deleteObject:task];
 	}
 	
+	NSLog(@"Delete all tasklists");
 	req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
-	for (TaskList *list in [context registeredObjects])
+	for (TaskList *list in [context executeFetchRequest:req error:nil])
 	{
 		[context deleteObject:list];
 	}
 
-	[self saveAction:NULL];
+	NSLog(@"Delete all predicates");
+	req = [[NSFetchRequest alloc] init];
+	[req setEntity:[NSEntityDescription entityForName:@"Predicate" inManagedObjectContext:context]];
+	for (Predicate *pred in [context executeFetchRequest:req error:nil])
+	{
+		if (!pred.isSmartList) [context deleteObject:pred];
+	}
 	
 	// get lists and tasks
 	[self updateAllLists];
 	[self updateAllTasks];
-	[self saveAction:NULL];
+	[self updateAllPredicates];
+	[self saveAction:nil];
 }
 
 /**

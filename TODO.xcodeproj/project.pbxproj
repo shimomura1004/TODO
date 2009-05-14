@@ -14,11 +14,11 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CA0200190FADE1D80018884A /* TaskList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0200180FADE1D80018884A /* TaskList.m */; };
-		CA3B4F9D0FBAAAD600C6ABAA /* Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */; };
 		CA3FA8CB0FB9987600EA6A90 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8CA0FB9987600EA6A90 /* Task.m */; };
 		CA3FA8FE0FB9A04300EA6A90 /* TodoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */; };
 		CA7EF1EC0FBAADEE002FFD58 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7EF1EB0FBAADEE002FFD58 /* Note.m */; };
 		CACA2C2A0FA6DC1E008438A3 /* TodoQLPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */; };
+		CAE41D620FBBE0E6002FC8B0 /* Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE41D610FBBE0E6002FC8B0 /* Predicate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +37,6 @@
 		8D1107320486CEB800E47090 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0200170FADE1D80018884A /* TaskList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskList.h; sourceTree = "<group>"; };
 		CA0200180FADE1D80018884A /* TaskList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskList.m; sourceTree = "<group>"; };
-		CA3B4F9B0FBAAAD600C6ABAA /* Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
-		CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predicate.m; sourceTree = "<group>"; };
 		CA3FA8C90FB9987600EA6A90 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		CA3FA8CA0FB9987600EA6A90 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTableView.h; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		CA7EF1EB0FBAADEE002FFD58 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		CACA2C280FA6DC1E008438A3 /* TodoQLPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoQLPanel.h; sourceTree = "<group>"; };
 		CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoQLPanel.m; sourceTree = "<group>"; };
+		CAE41D600FBBE0E6002FC8B0 /* Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
+		CAE41D610FBBE0E6002FC8B0 /* Predicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predicate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +144,10 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CAE41D600FBBE0E6002FC8B0 /* Predicate.h */,
+				CAE41D610FBBE0E6002FC8B0 /* Predicate.m */,
 				CA7EF1EA0FBAADEE002FFD58 /* Note.h */,
 				CA7EF1EB0FBAADEE002FFD58 /* Note.m */,
-				CA3B4F9B0FBAAAD600C6ABAA /* Predicate.h */,
-				CA3B4F9C0FBAAAD600C6ABAA /* Predicate.m */,
 				CA3FA8C90FB9987600EA6A90 /* Task.h */,
 				CA3FA8CA0FB9987600EA6A90 /* Task.m */,
 				CA0200170FADE1D80018884A /* TaskList.h */,
@@ -219,8 +219,8 @@
 				CA0200190FADE1D80018884A /* TaskList.m in Sources */,
 				CA3FA8CB0FB9987600EA6A90 /* Task.m in Sources */,
 				CA3FA8FE0FB9A04300EA6A90 /* TodoTableView.m in Sources */,
-				CA3B4F9D0FBAAAD600C6ABAA /* Predicate.m in Sources */,
 				CA7EF1EC0FBAADEE002FFD58 /* Note.m in Sources */,
+				CAE41D620FBBE0E6002FC8B0 /* Predicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Predicate.h
 //  TODO
 //
-//  Created by 下村 翔 on 5/13/09.
+//  Created by 下村 翔 on 5/14/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 {
 }
 
-@property (retain) NSString * title;
 @property (retain) NSNumber * isSmartList;
-@property (retain) NSString * predicate;
+@property (retain) NSString * predicateString;
+@property (retain) NSString * title;
 
 @end
 

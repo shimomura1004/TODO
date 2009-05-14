@@ -2,7 +2,7 @@
 //  Predicate.m
 //  TODO
 //
-//  Created by 下村 翔 on 5/13/09.
+//  Created by 下村 翔 on 5/14/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation Predicate 
 
-@dynamic title;
 @dynamic isSmartList;
-@dynamic predicate;
+@dynamic predicateString;
+@dynamic title;
 
 @end

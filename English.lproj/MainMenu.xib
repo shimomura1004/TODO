@@ -8,8 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1498"/>
-			<integer value="1072"/>
+			<integer value="1380"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1724,7 +1723,7 @@
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSWindowContentMinSize">{480, 270}</string>
 				<object class="NSView" key="NSWindowView" id="452944501">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1860,7 +1859,6 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {441, 114}}</string>
 									<reference key="NSSuperview" ref="177001128"/>
-									<reference key="NSNextKeyView" ref="204919649"/>
 									<reference key="NSDocView" ref="204919649"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">4</int>
@@ -1891,7 +1889,6 @@
 							</object>
 							<string key="NSFrame">{{20, 45}, {443, 116}}</string>
 							<reference key="NSSuperview" ref="452944501"/>
-							<reference key="NSNextKeyView" ref="246657851"/>
 							<int key="NSsFlags">530</int>
 							<reference key="NSVScroller" ref="72512563"/>
 							<reference key="NSHScroller" ref="736824646"/>
@@ -2124,7 +2121,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{483, 332}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{480, 289}</string>
@@ -2983,6 +2979,24 @@
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
 				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
 			</object>
+			<object class="NSArrayController" id="22886155">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>predicateString</string>
+					<string>title</string>
+				</object>
+				<bool key="NSEditable">YES</bool>
+				<bool key="NSAutomaticallyPreparesContent">YES</bool>
+				<object class="_NSManagedProxy" key="_NSManagedProxy">
+					<string key="NSEntityName">Predicate</string>
+				</object>
+				<bool key="_NSIsUsingManagedProxy">YES</bool>
+				<bool key="NSAvoidsEmptySelection">YES</bool>
+				<bool key="NSPreservesSelection">YES</bool>
+				<bool key="NSSelectsInsertedObjects">YES</bool>
+				<bool key="NSFilterRestrictsInsertion">YES</bool>
+				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -3619,6 +3633,38 @@
 						</object>
 					</object>
 					<int key="connectionID">1527</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">managedObjectContext: managedObjectContext</string>
+						<reference key="source" ref="22886155"/>
+						<reference key="destination" ref="612578685"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="22886155"/>
+							<reference key="NSDestination" ref="612578685"/>
+							<string key="NSLabel">managedObjectContext: managedObjectContext</string>
+							<string key="NSBinding">managedObjectContext</string>
+							<string key="NSKeyPath">managedObjectContext</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1548</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.title</string>
+						<reference key="source" ref="795339174"/>
+						<reference key="destination" ref="22886155"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="795339174"/>
+							<reference key="NSDestination" ref="22886155"/>
+							<string key="NSLabel">value: arrangedObjects.title</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.title</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1549</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -5125,6 +5171,12 @@
 						<reference key="object" ref="788122325"/>
 						<reference key="parent" ref="795339174"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1535</int>
+						<reference key="object" ref="22886155"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Predicate Array Controller</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -5300,6 +5352,7 @@
 					<string>150.ImportedFromIB2</string>
 					<string>1500.IBPluginDependency</string>
 					<string>1503.IBPluginDependency</string>
+					<string>1535.IBPluginDependency</string>
 					<string>154.IBPluginDependency</string>
 					<string>154.ImportedFromIB2</string>
 					<string>155.IBPluginDependency</string>
@@ -5601,6 +5654,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -5750,7 +5804,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1532</int>
+			<int key="maxID">1549</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
