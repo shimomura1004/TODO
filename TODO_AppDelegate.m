@@ -191,6 +191,14 @@ static NSString *token = @"";
     [super dealloc];
 }
 
+- (void) awakeFromNib
+{
+	// sort task table with its title name
+	NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES] autorelease];
+	NSArray *descriptors = [NSArray arrayWithObject:sortDescriptor];
+	[todoTableView setSortDescriptors: descriptors];
+}
+
 - (NSString *) createMD5String:(NSString *)orig {
 	const char *test_cstr = [orig UTF8String];
 	unsigned char md5_result[CC_MD5_DIGEST_LENGTH];
@@ -382,8 +390,8 @@ static NSString *token = @"";
 									  inManagedObjectContext:context];
 		predicateEntity.title = list.listname;
 		predicateEntity.isSmartList = NO;
-		predicateEntity.predicateString = [[@"title = '" stringByAppendingString:list.listname]
-										   stringByAppendingString:@"'"];
+		predicateEntity.predicateString = [[@"(tasklist.listname = '" stringByAppendingString:list.listname]
+										   stringByAppendingString:@"')"];
 	}
 	NSLog(@"Complete: update all predicates");
 }

@@ -15,7 +15,6 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CA0200190FADE1D80018884A /* TaskList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0200180FADE1D80018884A /* TaskList.m */; };
 		CA0774480FBC1FB200621F5F /* TaskArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */; };
-		CA07745B0FBC30A800621F5F /* SmartListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA07745A0FBC30A800621F5F /* SmartListTableView.m */; };
 		CA3FA8CB0FB9987600EA6A90 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8CA0FB9987600EA6A90 /* Task.m */; };
 		CA3FA8FE0FB9A04300EA6A90 /* TodoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */; };
 		CA7EF1EC0FBAADEE002FFD58 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7EF1EB0FBAADEE002FFD58 /* Note.m */; };
@@ -41,8 +40,6 @@
 		CA0200180FADE1D80018884A /* TaskList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskList.m; sourceTree = "<group>"; };
 		CA0774460FBC1FB200621F5F /* TaskArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskArrayController.h; sourceTree = "<group>"; };
 		CA0774470FBC1FB200621F5F /* TaskArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskArrayController.m; sourceTree = "<group>"; };
-		CA0774590FBC30A800621F5F /* SmartListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartListTableView.h; sourceTree = "<group>"; };
-		CA07745A0FBC30A800621F5F /* SmartListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartListTableView.m; sourceTree = "<group>"; };
 		CA3FA8C90FB9987600EA6A90 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		CA3FA8CA0FB9987600EA6A90 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTableView.h; sourceTree = "<group>"; };
@@ -78,8 +75,6 @@
 				CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */,
 				CA0774460FBC1FB200621F5F /* TaskArrayController.h */,
 				CA0774470FBC1FB200621F5F /* TaskArrayController.m */,
-				CA0774590FBC30A800621F5F /* SmartListTableView.h */,
-				CA07745A0FBC30A800621F5F /* SmartListTableView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -232,7 +227,6 @@
 				CA7EF1EC0FBAADEE002FFD58 /* Note.m in Sources */,
 				CAE41D620FBBE0E6002FC8B0 /* Predicate.m in Sources */,
 				CA0774480FBC1FB200621F5F /* TaskArrayController.m in Sources */,
-				CA07745B0FBC30A800621F5F /* SmartListTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

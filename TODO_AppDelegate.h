@@ -12,6 +12,7 @@
 {
     IBOutlet NSWindow *window;
 	IBOutlet NSWindow *hudwindow;
+	IBOutlet NSTableView *todoTableView;
 	
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
