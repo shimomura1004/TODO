@@ -305,12 +305,21 @@ static NSString *token = @"";
 												inManagedObjectContext:context];
 		taskEntity.title = [[taskseries attributeForName:@"name"] stringValue];
 		taskEntity.taskid = [NSNumber numberWithLongLong:[[[taskseries attributeForName:@"id"] stringValue] longLongValue]];
-		taskEntity.tags = [[[[taskseries childAtIndex:0] children] valueForKey:@"stringValue"]
-						   componentsJoinedByString:@","];
+		
+		taskEntity.tags = [[[[[taskseries elementsForName:@"tags"] lastObject] children]
+		  valueForKey:@"stringValue"] componentsJoinedByString:@","];
 		
 		NSXMLElement *task = [[NSXMLElement alloc]
 							  initWithXMLString:[[taskseries childAtIndex:3] XMLString] error:nil];
-		taskEntity.due = [[task attributeForName:@"due"] stringValue];
+		
+		if ([task attributeForName:@"due"])
+		{
+			NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
+			[df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+			NSDate *date = [df dateFromString:[[task attributeForName:@"due"] stringValue]];
+			taskEntity.due = date;
+		}
+		
 		int pri = [[[task attributeForName:@"priority"] stringValue] intValue];
 		taskEntity.priority = [NSNumber numberWithInt:(pri==0?0:4-pri)];
 		taskEntity.completed = [[task attributeForName:@"completed"] stringValue];

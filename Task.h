@@ -2,7 +2,7 @@
 //  Task.h
 //  TODO
 //
-//  Created by 下村 翔 on 5/12/09.
+//  Created by 下村 翔 on 5/19/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,13 +15,13 @@
 {
 }
 
-@property (retain) NSNumber * taskid;
-@property (retain) NSString * due;
-@property (retain) NSString * completed;
-@property (retain) NSString * tags;
-@property (retain) NSString * time;
-@property (retain) NSString * title;
 @property (retain) NSNumber * priority;
+@property (retain) NSDate * due;
+@property (retain) NSString * title;
+@property (retain) NSString * completed;
+@property (retain) NSString * time;
+@property (retain) NSString * tags;
+@property (retain) NSNumber * taskid;
 @property (retain) NSSet* notes;
 @property (retain) TaskList * tasklist;
 
