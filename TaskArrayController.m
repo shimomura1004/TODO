@@ -36,8 +36,8 @@
 
 	// predicate of searchfield
 	if (![[searchField stringValue] isEqualToString:@""]) {
-		NSString *searchpred = [NSString stringWithFormat:@"(title like[cd] '*%@*')",
-								[searchField stringValue]];
+		NSString *searchpred = [NSString stringWithFormat:@"((title like[cd] '*%@*') OR (any notes.content like[cd] '*%@*'))",
+								[searchField stringValue], [searchField stringValue]];
 		[allPredicates addObject:[NSPredicate predicateWithFormat:searchpred]];
 	}
 

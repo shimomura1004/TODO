@@ -199,6 +199,24 @@
 			CA241BF00FC2E06D005F47C9 /* PBXTextBookmark */ = CA241BF00FC2E06D005F47C9 /* PBXTextBookmark */;
 			CA241BF30FC2E0B6005F47C9 /* PBXTextBookmark */ = CA241BF30FC2E0B6005F47C9 /* PBXTextBookmark */;
 			CA241BF50FC2E111005F47C9 /* PBXTextBookmark */ = CA241BF50FC2E111005F47C9 /* PBXTextBookmark */;
+			CA241BFA0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFA0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241BFB0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFB0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241BFC0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFC0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241BFD0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFD0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241BFE0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFE0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241BFF0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241BFF0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C000FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C000FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C010FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C010FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C020FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C020FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C030FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C030FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C040FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C040FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C050FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C050FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C060FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C060FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C070FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C070FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C080FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C080FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C090FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C090FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C0A0FC2E3D9005F47C9 /* PBXTextBookmark */ = CA241C0A0FC2E3D9005F47C9 /* PBXTextBookmark */;
+			CA241C0B0FC2E417005F47C9 /* PBXTextBookmark */ = CA241C0B0FC2E417005F47C9 /* PBXTextBookmark */;
 			CA3FA8D60FB9997400EA6A90 = CA3FA8D60FB9997400EA6A90 /* PBXTextBookmark */;
 			CA3FA8D70FB9997400EA6A90 = CA3FA8D70FB9997400EA6A90 /* PBXTextBookmark */;
 			CA3FA8DA0FB9997400EA6A90 = CA3FA8DA0FB9997400EA6A90 /* PBXTextBookmark */;
@@ -414,9 +432,9 @@
 	};
 	77C8280C06725ACE000B614F /* TODO_AppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 7714}}";
-			sepNavSelRange = "{9998, 0}";
-			sepNavVisRange = "{9871, 1418}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 7588}}";
+			sepNavSelRange = "{13687, 0}";
+			sepNavVisRange = "{12701, 1291}";
 			sepNavWindowFrame = "{{15, 41}, {990, 732}}";
 		};
 	};
@@ -472,7 +490,7 @@
 	};
 	CA0774460FBC1FB200621F5F /* TaskArrayController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 520}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 543}}";
 			sepNavSelRange = "{135, 0}";
 			sepNavVisRange = "{0, 349}";
 			sepNavWindowFrame = "{{15, 291}, {990, 732}}";
@@ -481,8 +499,8 @@
 	CA0774470FBC1FB200621F5F /* TaskArrayController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1007, 800}}";
-			sepNavSelRange = "{793, 0}";
-			sepNavVisRange = "{275, 1361}";
+			sepNavSelRange = "{1229, 0}";
+			sepNavVisRange = "{252, 1446}";
 		};
 	};
 	CA07745E0FBC343400621F5F /* PBXTextBookmark */ = {
@@ -2030,6 +2048,186 @@
 		vrLen = 1418;
 		vrLoc = 9871;
 	};
+	CA241BFA0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774460FBC1FB200621F5F /* TaskArrayController.h */;
+		name = "TaskArrayController.h: 8";
+		rLen = 0;
+		rLoc = 135;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	CA241BFB0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */;
+		name = "TodoTableView.h: 8";
+		rLen = 0;
+		rLoc = 129;
+		rType = 0;
+		vrLen = 328;
+		vrLoc = 0;
+	};
+	CA241BFC0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 77C8280C06725ACE000B614F /* TODO_AppDelegate.m */;
+		name = "TODO_AppDelegate.m: 414";
+		rLen = 0;
+		rLoc = 13687;
+		rType = 0;
+		vrLen = 1291;
+		vrLoc = 12701;
+	};
+	CA241BFD0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */;
+		name = "TodoTableView.m: 29";
+		rLen = 0;
+		rLoc = 464;
+		rType = 0;
+		vrLen = 464;
+		vrLoc = 0;
+	};
+	CA241BFE0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */;
+		name = "TodoQLPanel.m: 23";
+		rLen = 0;
+		rLoc = 422;
+		rType = 0;
+		vrLen = 463;
+		vrLoc = 0;
+	};
+	CA241BFF0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */;
+		name = "TaskArrayController.m: 29";
+		rLen = 0;
+		rLoc = 793;
+		rType = 0;
+		vrLen = 1379;
+		vrLoc = 252;
+	};
+	CA241C000FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 77C8280C06725ACE000B614F /* TODO_AppDelegate.m */;
+		name = "TODO_AppDelegate.m: 324";
+		rLen = 0;
+		rLoc = 10355;
+		rType = 0;
+		vrLen = 1490;
+		vrLoc = 9871;
+	};
+	CA241C010FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */;
+		name = "TaskArrayController.m: 29";
+		rLen = 0;
+		rLoc = 793;
+		rType = 0;
+		vrLen = 1356;
+		vrLoc = 275;
+	};
+	CA241C020FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774460FBC1FB200621F5F /* TaskArrayController.h */;
+		name = "TaskArrayController.h: 8";
+		rLen = 0;
+		rLoc = 135;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	CA241C030FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */;
+		name = "TodoTableView.m: 29";
+		rLen = 0;
+		rLoc = 464;
+		rType = 0;
+		vrLen = 464;
+		vrLoc = 0;
+	};
+	CA241C040FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */;
+		name = "TodoTableView.h: 8";
+		rLen = 0;
+		rLoc = 129;
+		rType = 0;
+		vrLen = 328;
+		vrLoc = 0;
+	};
+	CA241C050FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */;
+		name = "TodoQLPanel.m: 23";
+		rLen = 0;
+		rLoc = 422;
+		rType = 0;
+		vrLen = 463;
+		vrLoc = 0;
+	};
+	CA241C060FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */;
+		name = "TaskArrayController.m: 29";
+		rLen = 0;
+		rLoc = 793;
+		rType = 0;
+		vrLen = 1379;
+		vrLoc = 252;
+	};
+	CA241C070FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 77C8280C06725ACE000B614F /* TODO_AppDelegate.m */;
+		name = "TODO_AppDelegate.m: 414";
+		rLen = 0;
+		rLoc = 13687;
+		rType = 0;
+		vrLen = 1291;
+		vrLoc = 12701;
+	};
+	CA241C080FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA3FA8FD0FB9A04300EA6A90 /* TodoTableView.m */;
+		name = "TodoTableView.m: 29";
+		rLen = 0;
+		rLoc = 464;
+		rType = 0;
+		vrLen = 464;
+		vrLoc = 0;
+	};
+	CA241C090FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CACA2C290FA6DC1E008438A3 /* TodoQLPanel.m */;
+		name = "TodoQLPanel.m: 23";
+		rLen = 0;
+		rLoc = 422;
+		rType = 0;
+		vrLen = 463;
+		vrLoc = 0;
+	};
+	CA241C0A0FC2E3D9005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */;
+		name = "TaskArrayController.m: 39";
+		rLen = 0;
+		rLoc = 1229;
+		rType = 0;
+		vrLen = 1444;
+		vrLoc = 252;
+	};
+	CA241C0B0FC2E417005F47C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CA0774470FBC1FB200621F5F /* TaskArrayController.m */;
+		name = "TaskArrayController.m: 39";
+		rLen = 0;
+		rLoc = 1229;
+		rType = 0;
+		vrLen = 1446;
+		vrLoc = 252;
+	};
 	CA3FA8C90FB9987600EA6A90 /* Task.h */ = {
 		isa = PBXFileReference;
 		fileEncoding = 4;
@@ -2088,7 +2286,7 @@
 	};
 	CA3FA8FC0FB9A04300EA6A90 /* TodoTableView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 520}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 543}}";
 			sepNavSelRange = "{129, 0}";
 			sepNavVisRange = "{0, 328}";
 		};
