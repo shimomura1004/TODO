@@ -390,8 +390,13 @@ static NSString *token = @"";
 									  inManagedObjectContext:context];
 		predicateEntity.title = list.listname;
 		predicateEntity.isSmartList = NO;
-		predicateEntity.predicateString = [[@"(tasklist.listname = '" stringByAppendingString:list.listname]
-										   stringByAppendingString:@"')"];
+		if ([list.listname isEqualToString:@"All Tasks"])
+		{
+			predicateEntity.predicateString = @"";
+		}  else {
+			predicateEntity.predicateString = [[@"(tasklist.listname = '" stringByAppendingString:list.listname]
+											   stringByAppendingString:@"')"];
+		}
 	}
 	NSLog(@"Complete: update all predicates");
 }

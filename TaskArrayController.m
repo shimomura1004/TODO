@@ -23,23 +23,27 @@
 
 - (void) updatePredicate
 {
+	NSMutableArray *allPredicates = [NSMutableArray arrayWithCapacity:3];
+	// predicate of list
 	NSArray *preds = [predicateController selectedObjects];
 	Predicate *listpred = [preds objectAtIndex:0];
+	if (![listpred.predicateString isEqualToString:@""])
+	{
+		[allPredicates addObject:[NSPredicate predicateWithFormat:listpred.predicateString]];
+	}
 
+	// predicate of searchfield
 	if (![[searchField stringValue] isEqualToString:@""]) {
 		NSString *searchpred = [[@"(title like[cd] '*"
 								 stringByAppendingString:[searchField stringValue]]
 								stringByAppendingString:@"*')"];
-	
-		NSArray *compp = [NSArray arrayWithObjects:
-						  [NSPredicate predicateWithFormat:searchpred],
-						  [NSPredicate predicateWithFormat:listpred.predicateString],
-						  nil];
-	
-		[self setFilterPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:compp]];
-	} else {
-		[self setFilterPredicate:[NSPredicate predicateWithFormat:listpred.predicateString]];
+		[allPredicates addObject:[NSPredicate predicateWithFormat:searchpred]];
 	}
+
+	// end of predicates array
+	//[allPredicates addObject:nil];
+	[self setFilterPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:allPredicates]];
+
 	NSLog(@"Predicate: %@", [self filterPredicate]);
 }
 
