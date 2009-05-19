@@ -15,9 +15,9 @@
 {
 	[super awakeFromNib];
 	NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
-	[nc addObserver:self selector:@selector(onPredicatetChangeAction:)
+	[nc addObserver:self selector:@selector(onPredicateChangeAction:)
 			   name:NSTableViewSelectionDidChangeNotification object:listTableView];
-	[nc addObserver:self selector:@selector(onListChangeAction:)
+	[nc addObserver:self selector:@selector(onPredicateChangeAction:)
 			   name:NSControlTextDidChangeNotification object:searchField];
 }
 
@@ -25,7 +25,7 @@
 {
 	NSMutableArray *allPredicates = [NSMutableArray arrayWithCapacity:3];
 	// predicate of list
-	if ([predicateController selectedObjects]) {
+	if ([[predicateController selectedObjects] count]) {
 		NSArray *preds = [predicateController selectedObjects];
 		Predicate *listpred = [preds objectAtIndex:0];
 		if (![listpred.predicateString isEqualToString:@""])

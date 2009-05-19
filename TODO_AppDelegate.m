@@ -18,6 +18,7 @@
 static NSString *apiKey = @"5a98a85fa1591ea18410784a2fd97669";
 static NSString *token = @"";
 
+@synthesize isLoading, statusText;
 
 /**
     Returns the support folder for the application, used to store the Core Data
@@ -340,6 +341,8 @@ static NSString *token = @"";
 	for (TaskList *list in [context executeFetchRequest:req error:nil])
 	{
 		NSLog(@"GETTING: %@", [list listname]);
+		self.statusText = [NSString stringWithFormat:@"GETTING: %@", [list listname]];
+		[statusField display];
 		// do not get task if list is 'All Tasks'
 		if (![[list listname] isEqualTo:@"All Tasks"])
 		{
@@ -347,6 +350,8 @@ static NSString *token = @"";
 		}
 	}
 	NSLog(@"Complete: update all tasks");
+	self.statusText = @"Complete: update all tasks";
+	[statusField display];
 }
 
 
@@ -376,6 +381,8 @@ static NSString *token = @"";
 	}
 	
 	NSLog(@"Complete: update all lists");
+	self.statusText = @"Complete: update all lists";
+	[statusField display];
 }
 
 - (void) updateAllPredicates
@@ -399,6 +406,8 @@ static NSString *token = @"";
 		}
 	}
 	NSLog(@"Complete: update all predicates");
+	self.statusText = @"Complete: update all predicates";
+	[statusField display];
 }
 
 - (IBAction) completeTask:(id)sender
@@ -410,10 +419,13 @@ static NSString *token = @"";
 
 - (IBAction) updateAllListsAndTasks:(id)sender
 {
+	self.isLoading = YES;
 	// first, remove all lists and tasks
 	NSManagedObjectContext *context = [self managedObjectContext];
 	
 	NSLog(@"Delete all tasks");
+	self.statusText = @"Delete all tasks";
+	[statusField display];
 	NSFetchRequest *req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:context]];
 	for (Task *task in [context executeFetchRequest:req error:nil])
@@ -422,6 +434,8 @@ static NSString *token = @"";
 	}
 	
 	NSLog(@"Delete all tasklists");
+	self.statusText = @"Delete all tasklists";
+	[statusField display];
 	req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"TaskList" inManagedObjectContext:context]];
 	for (TaskList *list in [context executeFetchRequest:req error:nil])
@@ -430,19 +444,25 @@ static NSString *token = @"";
 	}
 
 	NSLog(@"Delete all predicates");
+	self.statusText = @"Delete all predicates";
+	[statusField display];
 	req = [[NSFetchRequest alloc] init];
 	[req setEntity:[NSEntityDescription entityForName:@"Predicate" inManagedObjectContext:context]];
 	for (Predicate *pred in [context executeFetchRequest:req error:nil])
 	{
 		if (!pred.isSmartList) [context deleteObject:pred];
 	}
-	
+
 	// get lists and tasks
 	[context processPendingChanges];
 	[self updateAllLists];
 	[context processPendingChanges];
 	[self updateAllTasks];
+	[context processPendingChanges];
 	[self updateAllPredicates];
+	[context processPendingChanges];
+	
+	self.isLoading = NO;
 }
 
 /**

@@ -14,9 +14,14 @@
 	IBOutlet NSWindow *hudwindow;
 	IBOutlet NSTableView *todoTableView;
 	
+	IBOutlet NSTextField *statusField;
+	
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
+	
+	BOOL isLoading;
+	NSString *statusText;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
@@ -27,5 +32,8 @@
 - (IBAction)completeTask:sender;
 
 - (IBAction)updateAllListsAndTasks:sender;
+
+@property (assign) BOOL isLoading;
+@property (retain) NSString *statusText;
 
 @end
