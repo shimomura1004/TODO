@@ -15,7 +15,7 @@
 {
 	[super awakeFromNib];
 	NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
-	[nc addObserver:self selector:@selector(onListChangeAction:)
+	[nc addObserver:self selector:@selector(onPredicatetChangeAction:)
 			   name:NSTableViewSelectionDidChangeNotification object:listTableView];
 	[nc addObserver:self selector:@selector(onListChangeAction:)
 			   name:NSControlTextDidChangeNotification object:searchField];
@@ -25,11 +25,13 @@
 {
 	NSMutableArray *allPredicates = [NSMutableArray arrayWithCapacity:3];
 	// predicate of list
-	NSArray *preds = [predicateController selectedObjects];
-	Predicate *listpred = [preds objectAtIndex:0];
-	if (![listpred.predicateString isEqualToString:@""])
-	{
-		[allPredicates addObject:[NSPredicate predicateWithFormat:listpred.predicateString]];
+	if ([predicateController selectedObjects]) {
+		NSArray *preds = [predicateController selectedObjects];
+		Predicate *listpred = [preds objectAtIndex:0];
+		if (![listpred.predicateString isEqualToString:@""])
+		{
+			[allPredicates addObject:[NSPredicate predicateWithFormat:listpred.predicateString]];
+		}
 	}
 
 	// predicate of searchfield
@@ -46,7 +48,7 @@
 	NSLog(@"Predicate: %@", [self filterPredicate]);
 }
 
-- (void) onListChangeAction:(NSNotification *)ntf
+- (void) onPredicateChangeAction:(NSNotification *)ntf
 {
 	[self updatePredicate];
 }

@@ -437,8 +437,10 @@ static NSString *token = @"";
 		if (!pred.isSmartList) [context deleteObject:pred];
 	}
 	
-	// get lists and tasks	
+	// get lists and tasks
+	[context processPendingChanges];
 	[self updateAllLists];
+	[context processPendingChanges];
 	[self updateAllTasks];
 	[self updateAllPredicates];
 }
