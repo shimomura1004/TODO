@@ -11,9 +11,8 @@
 
 @interface TaskArrayController : NSArrayController {
 	IBOutlet NSSearchField *searchField;
+	IBOutlet NSTableView *listTableView;
 	IBOutlet NSArrayController *predicateController;
 }
-
-- (IBAction)updateFilter:(id)sender;
 
 @end

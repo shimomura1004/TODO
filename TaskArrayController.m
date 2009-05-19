@@ -11,6 +11,16 @@
 
 @implementation TaskArrayController
 
+- (void) awakeFromNib
+{
+	[super awakeFromNib];
+	NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
+	[nc addObserver:self selector:@selector(onListChangeAction:)
+			   name:NSTableViewSelectionDidChangeNotification object:listTableView];
+	[nc addObserver:self selector:@selector(onListChangeAction:)
+			   name:NSControlTextDidChangeNotification object:searchField];
+}
+
 - (void) updatePredicate
 {
 	NSArray *preds = [predicateController selectedObjects];
@@ -33,7 +43,7 @@
 	NSLog(@"Predicate: %@", [self filterPredicate]);
 }
 
-- (IBAction)updateFilter:(id)sender
+- (void) onListChangeAction:(NSNotification *)ntf
 {
 	[self updatePredicate];
 }
